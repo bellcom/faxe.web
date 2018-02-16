@@ -1,0 +1,148 @@
+// |--------------------------------------------------------------------------
+// | Teaser
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .entity-teaser
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin entity-teaser-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.entity-teaser {
+  margin-bottom: floor( ( $grid-gutter-width / 2 ) );
+
+  background-color: $body-bg-secondary;
+}
+
+.entity-teaser__image {
+
+  img {
+    width: 100%;
+  }
+}
+
+.entity-teaser__genre {
+  margin-right: 60px;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  padding-right: $xs-boxy-spacing-left-right;
+  padding-left: $xs-boxy-spacing-left-right;
+
+  font-weight: $font-weight-bold;
+
+  background-color: $body-bg-tertiary;
+}
+
+.entity-teaser__heading {
+  margin-bottom: 10px;
+}
+.entity-teaser__heading__title {
+  margin: 0;
+
+  color: $brand-primary;
+
+  .entity-teaser:hover & {
+    text-decoration: underline;
+  }
+}
+
+.entity-teaser__date {
+  margin-bottom: 20px;
+
+  font-size: $font-size-large;
+}
+
+.entity-teaser__description {}
+
+.entity-teaser__body {
+  padding-top: floor( ($grid-gutter-width / 2) );
+  padding-bottom: floor( ($grid-gutter-width / 2) );
+
+  padding-right: $xs-boxy-spacing-left-right;
+  padding-left: $xs-boxy-spacing-left-right;
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+  .entity-teaser__genre {
+    padding-right: $sm-boxy-spacing-left-right;
+    padding-left: $sm-boxy-spacing-left-right;
+  }
+
+  .entity-teaser__body {
+    padding-right: $sm-boxy-spacing-left-right;
+    padding-left: $sm-boxy-spacing-left-right;
+  }
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {
+
+  .entity-teaser__genre {
+    padding-right: $md-boxy-spacing-left-right;
+    padding-left: $md-boxy-spacing-left-right;
+  }
+
+  .entity-teaser__body {
+    padding-right: $md-boxy-spacing-left-right;
+    padding-left: $md-boxy-spacing-left-right;
+  }
+}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .entity-teaser__genre {
+    padding-right: $lg-boxy-spacing-left-right;
+    padding-left: $lg-boxy-spacing-left-right;
+  }
+
+  .entity-teaser__body {
+    padding-right: $lg-boxy-spacing-left-right;
+    padding-left: $lg-boxy-spacing-left-right;
+  }
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

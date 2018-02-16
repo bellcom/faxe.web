@@ -1,0 +1,134 @@
+// |--------------------------------------------------------------------------
+// | List advanced
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .entity-list-advanced
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin entity-list-advanced-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.entity-list-advanced {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: floor( ( $grid-gutter-width / 2 ) );
+
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.entity-list-advanced__image {
+
+  img {
+    width: 100%;
+  }
+}
+
+.entity-list-advanced__heading {
+  margin-bottom: 15px;
+}
+.entity-list-advanced__heading__title {
+  margin: 0;
+
+  color: $brand-primary;
+
+  .entity-list-advanced:hover & {
+    text-decoration: underline;
+  }
+}
+
+.entity-list-advanced__date {
+  margin-bottom: 30px;
+
+  font-size: $font-size-large;
+}
+
+.entity-list-advanced__description {}
+
+.entity-list-advanced__body {
+  padding-top: floor( ($grid-gutter-width / 2) );
+  padding-bottom: floor( ($grid-gutter-width / 2) );
+
+  padding-right: $xs-boxy-spacing-left-right;
+  padding-left: $xs-boxy-spacing-left-right;
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {
+
+  .entity-list-advanced {
+    flex-direction: row;
+  }
+
+  .entity-list-advanced__image {
+    flex-basis: 370px;
+    flex-shrink: 0;
+  }
+}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+  .entity-list-advanced__body {
+    padding-right: $sm-boxy-spacing-left-right;
+    padding-left: $sm-boxy-spacing-left-right;
+  }
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {
+
+  .entity-list-advanced__body {
+    padding-right: $md-boxy-spacing-left-right;
+    padding-left: $md-boxy-spacing-left-right;
+  }
+}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .entity-list-advanced__body {
+    padding-right: $lg-boxy-spacing-left-right;
+    padding-left: $lg-boxy-spacing-left-right;
+  }
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

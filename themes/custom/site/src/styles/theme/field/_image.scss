@@ -1,0 +1,67 @@
+// |--------------------------------------------------------------------------
+// | Image
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .field-name-field-os2web-base-field-image
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin field-name-field-os2web-base-field-image-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.field-name-field-os2web-base-field-image {
+
+  img {
+    width: 100% !important;
+    height: auto;
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

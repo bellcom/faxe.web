@@ -1,0 +1,329 @@
+// |--------------------------------------------------------------------------
+// | Flexy header
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .flexy-header
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Responsive
+$xs-flexy-header-static-row-first-height: 50px;
+$sm-flexy-header-static-row-first-height: 70px;
+$md-flexy-header-static-row-first-height: 90px;
+$lg-flexy-header-static-row-first-height: 90px;
+
+$xs-flexy-header-static-row-second-height: 40px;
+$sm-flexy-header-static-row-second-height: 50px;
+$md-flexy-header-static-row-second-height: 70px;
+$lg-flexy-header-static-row-second-height: 70px;
+
+$xs-logo-font-size: 20px;
+$sm-logo-font-size: 22px;
+$md-logo-font-size: 28px;
+$lg-logo-font-size: 28px;
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin flexy-header-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.flexy-header {
+
+  .social-icon {
+    background-color: $brand-secondary;
+
+    .icon {
+      color: #fff;
+    }
+  }
+}
+
+.flexy-header--static {
+
+  .flexy-header__row--first {
+    @include flexy-header-mixin-row-height($xs-flexy-header-static-row-first-height);
+
+    background-color: $body-bg-secondary;
+  }
+
+  .flexy-header__row--second {
+    position: relative;
+
+    @include flexy-header-mixin-row-height($xs-flexy-header-static-row-second-height);
+
+    background-color: $body-bg-tertiary;
+
+    .social-icon {
+      height: $xs-flexy-header-static-row-second-height;
+      width: $xs-flexy-header-static-row-second-height;
+    }
+  }
+}
+
+.flexy-header__secondary-navigation {
+
+  .flexy-list {
+
+    > * {
+      padding: 0 30px 0 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  a {
+    font-size: $font-size-large;
+
+    color: $text-color;
+  }
+}
+
+.flexy-header__logo {
+  font-size: $xs-logo-font-size;
+
+  &, &:hover, &:focus {
+    color: $text-color;
+
+    text-decoration: none;
+  }
+}
+
+.flexy-header__form {
+  position: absolute;
+
+  right: 0;
+
+  form {
+    position: relative;
+  }
+
+  .form-inline {
+
+    .input-group {
+      display: block;
+    }
+  }
+
+  .input-group {
+
+    .form-control {
+      @include border-right-radius($border-radius-large);
+    }
+
+    .input-group-addon {
+      display: none;
+    }
+  }
+
+  .form-actions {
+    display: none;
+  }
+
+  .form-control {
+    @extend .input-lg;
+
+    padding-right: 50px; // The width of the button, so the text dont go underneath
+
+    border: 0;
+
+    font-size: $font-size-base;
+    color: #fff;
+    background-color: $brand-primary;
+
+    @include placeholder(#fff);
+  }
+
+  .btn {
+    @extend .btn-lg;
+
+    position: absolute;
+
+    z-index: 2000;
+
+    top: 0;
+    right: 0;
+
+    background-color: transparent;
+    border: 0;
+
+    font-size: 0;
+
+    color: $text-color;
+
+    &:after {
+      @extend .fa;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      top: 50%;
+      left: 50%;
+
+      height: 30px;
+      width: 30px;
+
+      margin-top: -15px;
+      margin-right: -15px;
+
+      font-size: $font-size-large;
+
+      content: $fa-var-search;
+
+      color :#fff;
+    }
+  }
+}
+
+.flexy-header__sidebar-toggle {
+  border: 0;
+  background-color: transparent;
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+  .flexy-header--static {
+
+    .flexy-header__row--first {
+      @include flexy-header-mixin-row-height($sm-flexy-header-static-row-first-height);
+    }
+
+    .flexy-header__row--second {
+      @include flexy-header-mixin-row-height($sm-flexy-header-static-row-second-height);
+
+      .social-icon {
+        height: $sm-flexy-header-static-row-second-height;
+        width: $sm-flexy-header-static-row-second-height;
+      }
+
+      .flexy-header__form {
+
+        .form-control,
+        .btn {
+          height: $sm-flexy-header-static-row-second-height;
+        }
+      }
+    }
+  }
+
+  .flexy-header__logo {
+    font-size: $sm-logo-font-size;
+  }
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {
+
+  .flexy-header--static {
+
+    .flexy-header__row--second {
+
+      > .container {
+        padding-right: 125px; // also set in app.js
+      }
+    }
+  }
+}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {
+
+  .flexy-header--static {
+
+    .flexy-header__row--first {
+      @include flexy-header-mixin-row-height($md-flexy-header-static-row-first-height);
+    }
+
+    .flexy-header__row--second {
+      @include flexy-header-mixin-row-height($md-flexy-header-static-row-second-height);
+
+      .social-icon {
+        height: $md-flexy-header-static-row-second-height;
+        width: $md-flexy-header-static-row-second-height;
+      }
+
+      .flexy-header__form {
+
+        .form-control,
+        .btn {
+          height: $md-flexy-header-static-row-second-height;
+        }
+      }
+    }
+  }
+
+  .flexy-header__logo {
+    font-size: $md-logo-font-size;
+  }
+}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .flexy-header--static {
+
+    .flexy-header__row--first {
+      @include flexy-header-mixin-row-height($lg-flexy-header-static-row-first-height);
+    }
+
+    .flexy-header__row--second {
+      @include flexy-header-mixin-row-height($lg-flexy-header-static-row-second-height);
+
+      .social-icon {
+        height: $lg-flexy-header-static-row-second-height;
+        width: $lg-flexy-header-static-row-second-height;
+      }
+
+      .flexy-header__form {
+
+        .form-control,
+        .btn {
+          height: $lg-flexy-header-static-row-second-height;
+        }
+      }
+    }
+  }
+
+  .flexy-header__logo {
+    font-size: $lg-logo-font-size;
+  }
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
