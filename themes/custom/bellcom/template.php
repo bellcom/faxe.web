@@ -1,32 +1,29 @@
 <?php
-include( dirname(__FILE__) . '/include/menu.inc');
 include( dirname(__FILE__) . '/include/helpers.inc');
+include( dirname(__FILE__) . '/include/menu.inc');
+include( dirname(__FILE__) . '/include/settings.inc');
 
 /**
  * Implements theme_preprocess_html().
  */
 function bellcom_preprocess_html(&$variables) {
-  $view_modes = array('xs', 'sm', 'md', 'lg');
   $current_theme = variable_get('theme_default','none');
 
-  // Paths.
+  // Paths
   $variables['path_js']   = base_path() . drupal_get_path('theme', $current_theme) . '/dist/js';
   $variables['path_img']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/img';
   $variables['path_css']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/css';
   $variables['path_font'] = base_path() . drupal_get_path('theme', $current_theme) . '/dist/font';
 
-  // Live reload.
-  if (variable_get('environment', FALSE) == 'dev') {
-    $live_reload_file = 'http://127.0.0.1:35729/livereload.js';
+  // Panels display
+  if ($page = page_manager_get_current_page()) {
+    $panels_layout = $page['handler']->conf['display']->layout;
+    $panels_display = ($page['handler']->conf['name'] == '') ? 'standard' : $page['handler']->conf['name'];
 
-    drupal_add_js($live_reload_file, array(
-      'group' => JS_LIBRARY,
-    ));
-  }
-
-  // Sidebar.
-  foreach($view_modes as $view_mode) {
-    $variables['classes_array'] = array_merge($variables['classes_array'], _bellcom_sidebar_classes($view_mode));
+    // Panels layout
+    $variables['classes_array'][] = drupal_html_class('panels-layout');
+    $variables['classes_array'][] = drupal_html_class('panels-layout--' . $panels_layout);
+    $variables['classes_array'][] = drupal_html_class('panels-display--' . $panels_display);
   }
 }
 
@@ -39,19 +36,20 @@ function bellcom_preprocess_page(&$variables) {
   $secondary_navigation_name = variable_get('menu_secondary_links_source', 'user-menu');
 
   // Navigation
-  $variables['main_navigation_primary'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation');
-  $variables['main_navigation_secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'main-navigation');
-  $variables['sidebar_primary'] = _bellcom_generate_menu($primary_navigation_name, 'sidebar');
-  $variables['sidebar_secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'sidebar');
+  $variables['flexy_navigation__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_navigation', TRUE);
+  $variables['flexy_navigation__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'flexy_navigation', TRUE);
+
+  $variables['menu_slinky__primary'] = _bellcom_generate_menu($primary_navigation_name, 'slinky', TRUE);
+  $variables['menu_slinky__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'slinky', TRUE);
+
+  $variables['flexy_list__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_list', FALSE, 1);
+  $variables['flexy_list__secondary'] = _bellcom_generate_menu($secondary_navigation_name, 'flexy_list', FALSE, 1);
 
   // Paths
   $variables['path_js']   = base_path() . drupal_get_path('theme', $current_theme) . '/dist/js';
   $variables['path_img']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/img';
   $variables['path_css']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/css';
   $variables['path_font'] = base_path() . drupal_get_path('theme', $current_theme) . '/dist/font';
-
-  // Panels.
-  $variables['panels'] = panels_get_current_page_display();
 
   // Theme settings
   $variables['theme_settings'] = _bellcom_collect_theme_settings();
@@ -61,39 +59,28 @@ function bellcom_preprocess_page(&$variables) {
  * Implements template_preprocess_node().
  */
 function bellcom_preprocess_node(&$variables) {
-  $current_theme = variable_get('theme_default','none');
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+  $content_type = $node->type;
 
-  // Paths
-  $variables['path_js']   = base_path() . drupal_get_path('theme', $current_theme) . '/dist/js';
-  $variables['path_img']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/img';
-  $variables['path_css']  = base_path() . drupal_get_path('theme', $current_theme) . '/dist/css';
-  $variables['path_font'] = base_path() . drupal_get_path('theme', $current_theme) . '/dist/font';
+  // Entity variables
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode . '--' . $content_type);
+
+  $variables['classes_array'][] = drupal_html_class('node--' . $content_type . '--' . $view_mode);
 
   // Add node--view_mode.tpl.php suggestions.
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $view_mode;
 
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-
-  // Add a class for the view mode.
-  $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
-
-  // Add css class "node--NODETYPE--VIEWMODE" to nodes.
-  $variables['classes_array'][] = 'node--' . $variables['type'] . '--' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $content_type . '__' . $view_mode;
 
   // Optionally, run node-type-specific preprocess functions, like
   // foo_preprocess_node_page() or foo_preprocess_node_story().
-  $function_node_type = __FUNCTION__ . '__' . $variables['node']->type;
-  $function_view_mode = __FUNCTION__ . '__' . $variables['view_mode'];
-  if (function_exists($function_node_type)) {
-    $function_node_type($variables);
+  $function = __FUNCTION__ . '__' . $content_type;
+  if (function_exists($function)) {
+    $function($variables);
   }
-  if (function_exists($function_view_mode)) {
-    $function_view_mode($variables);
-  }
-
-  // Title (shortened)
-  $variables['title_shortened'] = _bellcom_text_shortener($variables['title'], 50);
 
   // Updated at
   if ($updated_at = $variables['node']->changed) {
@@ -142,113 +129,122 @@ function bellcom_preprocess_comment(&$variables) {
  * Implements template_preprocess_taxonomy_term().
  */
 function bellcom_preprocess_taxonomy_term(&$variables) {
+  $vocabulary_machine_name = $variables['vocabulary_machine_name'];
+  $view_mode = $variables['view_mode'];
 
   // Add taxonomy-term--view_mode.tpl.php suggestions.
-  $variables['theme_hook_suggestions'][] = 'taxonomy_term__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'taxonomy-term__' . $view_mode;
 
-  // Make "taxonomy-term--TERMTYPE--VIEWMODE.tpl.php" templates available for terms.
-  $variables['theme_hook_suggestions'][] = 'taxonomy_term__' . $variables['vocabulary_machine_name'] . '__' . $variables['view_mode'];
+  // Entity variables
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode . '--' . $vocabulary_machine_name);
 
-  // Add a class for the view mode.
-  $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
-
-  // Optionally, run node-type-specific preprocess functions, like
-  // foo_preprocess_taxonomy_term_page() or foo_preprocess_taxonomy_term_story().
-  $function_taxonomy_term_type = __FUNCTION__ . '__' . $variables['vocabulary_machine_name'];
-  $function_view_mode = __FUNCTION__ . '__' . $variables['view_mode'];
-  if (function_exists($function_taxonomy_term_type)) {
-    $function_taxonomy_term_type($variables);
-  }
-  if (function_exists($function_view_mode)) {
-    $function_view_mode($variables);
-  }
-}
-
-/**
- * Implements template_menu_local_tasks().
- */
-function bellcom_menu_local_tasks(&$variables) {
-  $output = '';
-
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs--primary">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
-  }
-
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs--secondary">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
-  }
-
-  return $output;
+  $variables['classes_array'][] = drupal_html_class('taxonomy-term--' . $vocabulary_machine_name . '--' . $view_mode);
 }
 
 /*
- * Implements template_preprocess_field().
+ * Implements template_preprocess_paragraphs_items().
  */
-function bellcom_preprocess_field(&$variables, $hook) {
-}
+function bellcom_preprocess_paragraphs_items(&$variables, $hook) {
+  $field_name = $variables['element']['#field_name'];
+  $view_mode = $variables['element']['#view_mode'];
 
-/*
- * Implements hook_preprocess_region().
- */
-function bellcom_preprocess_region(&$variables, $hook) {
+  // Add paragraphs-items--view_mode.tpl.php suggestions.
+  $variables['theme_hook_suggestions'][] = 'paragraphs_items__' . $view_mode;
+
+  // Entity variables
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode);
+  $variables['classes_array'][] = drupal_html_class('entity-' . $view_mode . '--' . $field_name);
+
+  $variables['classes_array'][] = drupal_html_class('paragraphs-items--' . $field_name . '--' . $view_mode);
 }
 
 /*
  * Implements theme_preprocess_block().
  */
 function bellcom_preprocess_block(&$variables) {
-
   $variables ['classes_array'][] = drupal_html_class('block-' . $variables ['block']->module);
 }
 
 /*
  * Implements theme_menu_tree().
- * For main navigation.
+ * For slinky menu types.
  */
-function bellcom_menu_tree__main_navigation(&$variables) {
-  return '<ul class="main-navigation-list">' . $variables['tree'] . '</ul>';
+function bellcom_menu_tree__flexy_navigation(&$variables) {
+  return '<ul class="flexy-navigation">' . $variables['tree'] . '</ul>';
 }
 
 /*
  * Implements theme_menu_tree().
- * For sidebar menu types.
+ * For slinky menu types.
  */
-function bellcom_menu_tree__sidebar(&$variables) {
-  return '<ul class="sidebar-navigation">' . $variables['tree'] . '</ul>';
+function bellcom_menu_tree__slinky(&$variables) {
+  return $variables['tree'];
+}
+
+/*
+ * Implements theme_menu_tree().
+ * For slinky menu types.
+ */
+function bellcom_menu_tree__flexy_list(&$variables) {
+  return '<ul class="flexy-list">' . $variables['tree'] . '</ul>';
 }
 
 /*
  * Implements theme_menu_link().
  */
-function bellcom_menu_link__main_navigation(array $variables) {
+function bellcom_menu_link__flexy_navigation(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
-  if ($element['#below']) {
-    // Prevent dropdown functions from being added to management menu so it
-    // does not affect the navbar module.
-    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
-      $sub_menu = drupal_render($element['#below']);
-    }
-    elseif ((!empty($element['#original_link']['depth']))) {
+  // @TODO - current level
+  // --- https://drupal.stackexchange.com/questions/32873/how-to-theme-only-top-level-menu
+  // If we are on second level or below, we need to add other classes to the list items.
 
-      // Add our own wrapper.
-      unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="main-navigation-list-dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+  // The navbar
+  if ($element['#original_link']['depth'] > 1) {
+    $element['#attributes']['class'][] = 'flexy-navigation__item__dropdown-menu__item';
 
-      // Generate as dropdown.
-      $element['#attributes']['class'][] = 'main-navigation-list-dropdown';
-      $element['#localized_options']['html'] = TRUE;
+    // Has a dropdown menu
+    if ($element['#below']) {
+
+      if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+        $sub_menu = drupal_render($element['#below']);
+      }
+      elseif ((!empty($element['#original_link']['depth']))) {
+
+        // Add our own wrapper.
+        unset($element['#below']['#theme_wrappers']);
+        $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+
+        // Generate as dropdown.
+        $element['#attributes']['class'][] = 'flexy-navigation__item__dropdown-menu__item--dropdown';
+        $element['#localized_options']['html'] = TRUE;
+      }
     }
   }
+
+  // Inside dropdown menu
   else {
-    $element['#attributes']['class'][] = 'main-navigation-list-link';
+    $element['#attributes']['class'][] = 'flexy-navigation__item';
+
+    // Has a dropdown menu
+    if ($element['#below']) {
+
+      if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+        $sub_menu = drupal_render($element['#below']);
+      }
+      elseif ((!empty($element['#original_link']['depth']))) {
+
+        // Add our own wrapper.
+        unset($element['#below']['#theme_wrappers']);
+        $sub_menu = '<ul class="flexy-navigation__item__dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+
+        // Generate as dropdown.
+        $element['#attributes']['class'][] = 'flexy-navigation__item--dropdown';
+        $element['#localized_options']['html'] = TRUE;
+      }
+    }
   }
 
   // On primary navigation menu, class 'active' is not set on active menu item.
@@ -274,7 +270,7 @@ function bellcom_menu_link__main_navigation(array $variables) {
 /*
  * Implements theme_menu_link().
  */
-function bellcom_menu_link__sidebar(array $variables) {
+function bellcom_menu_link__slinky(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
 
@@ -292,75 +288,57 @@ function bellcom_menu_link__sidebar(array $variables) {
       unset($element['#below']['#theme_wrappers']);
 
       // Submenu classes
-      $sub_menu_attributes['element']['class'] = array();
-      $sub_menu_attributes['element']['class'][] = 'sidebar-navigation-dropdown-menu';
-      if (in_array('active', $element['#attributes']['class']) or in_array('active-trail', $element['#attributes']['class'])) {
-        $sub_menu_attributes['element']['class'][] = 'active';
-      }
-
-      $sub_menu = ' <ul' . drupal_attributes($sub_menu_attributes['element']) . '>' . drupal_render($element['#below']) . '</ul>';
-
-      // Generate as dropdown.
-      $element['#title'] .= ' <span class="sidebar-navigation-dropdown-toggle"></span>';
-      $element['#attributes']['class'][] = 'sidebar-navigation-dropdown';
-      $element['#localized_options']['html'] = TRUE;
+      $sub_menu = ' <ul>' . drupal_render($element['#below']) . '</ul>';
     }
   }
-  else {
-    $element['#attributes']['class'][] = 'sidebar-navigation-link';
-  }
 
-  // On primary navigation menu, class 'active' is not set on active menu item.
-  // @see https://drupal.org/node/1896674
-  if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
-    $element['#attributes']['class'][] = 'active';
-  }
+  // If this is a parent link, slinky require is to just link to a #
+  if ($element['#below']) {
+    $element['#href'] = '';
 
-  // Link title class
-  $convert_characters = array('/', '_', 'æ', 'ø', 'å');
-  $element['#attributes']['class'][] = str_replace('/', '-', $element['#href']);
+    $element['#localized_options']['fragment'] = 'content';
+    $element['#localized_options']['external'] = TRUE;
+  }
 
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
 
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
-
-/**
- * Implements hook_field_widget_form_alter().
- */
-function bellcom_field_widget_form_alter(&$element, &$form_state, $context) {
-
-  // Make input groups work on BS3
-  if (!empty($element['value']['#field_prefix']) || !empty($element['value']['#field_suffix'])) {
-    $element['value']['#input_group'] = TRUE;
-  }
+  return '<li>' . $output . $sub_menu . "</li>\n";
 }
 
 /*
- * Implements template_preprocess_views_view_table().
+ * Implements theme_menu_link().
  */
-function bellcom_preprocess_views_view_table(&$variables) {
-  $view = $variables['view'];
+function bellcom_menu_link__flexy_list(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
 
-  // Add responsive class to the table
-  $variables['classes_array'][] = 'table-responsive-stacked';
+  if ($element['#below']) {
 
-  $result = $variables['result'] = $variables['rows'];
-  $options = $view->style_plugin->options;
-  $handler = $view->style_plugin;
-  $fields = &$view->field;
-  $columns = $handler->sanitize_columns($options['columns'], $fields);
+    // Prevent dropdown functions from being added to management menu so it
+    // does not affect the navbar module.
+    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
+      $sub_menu = drupal_render($element['#below']);
+    }
 
-  foreach ($columns as $field => $column) {
+    elseif ((!empty($element['#original_link']['depth']))) {
 
-    // Render each field into its appropriate column.
-    foreach ($result as $num => $row) {
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
 
-      if (!empty($fields[$field]) && empty($fields[$field]->options['exclude'])) {
-        $label = check_plain(!empty($fields[$field]) ? $fields[$field]->label() : '');
-
-        $variables['field_attributes'][$field][$num]['data-title'] = $label;
-      }
+      // Submenu classes
+      $sub_menu = ' <ul>' . drupal_render($element['#below']) . '</ul>';
     }
   }
+
+  // If this is a parent link, slinky require is to just link to a #
+  if ($element['#below']) {
+    $element['#href'] = '';
+
+    $element['#localized_options']['fragment'] = 'content';
+    $element['#localized_options']['external'] = TRUE;
+  }
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+
+  return '<li>' . $output . $sub_menu . "</li>\n";
 }
