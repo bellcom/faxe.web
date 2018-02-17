@@ -213,7 +213,7 @@
   <footer class="layout__footer">
     <div class="layout__footer__inner">
       <div class="container">
-
+        <?php print render($page['footer']); ?>
         <!-- Begin - first -->
         <?php if (!empty($flexy_list__primary)): ?>
           <div class="layout__footer__row layout__footer__row--first">
