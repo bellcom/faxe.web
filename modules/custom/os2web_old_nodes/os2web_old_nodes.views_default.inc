@@ -140,7 +140,7 @@ function os2web_old_nodes_views_default_views() {
   $handler->display->display_options['filters']['changed']['table'] = 'node';
   $handler->display->display_options['filters']['changed']['field'] = 'changed';
   $handler->display->display_options['filters']['changed']['operator'] = '<';
-  $handler->display->display_options['filters']['changed']['value']['value'] = 'now -6 months';
+  $handler->display->display_options['filters']['changed']['value']['value'] = 'now -3 months';
   $handler->display->display_options['filters']['changed']['value']['type'] = 'offset';
 
   /* Display: Blok */
