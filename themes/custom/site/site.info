@@ -15,8 +15,8 @@ base theme = 'bellcom'
 regions[search] = 'Search'
 regions[help] = 'Help'
 regions[content] = 'Content'
-regions[sidebar] = 'Sidebar'
-regions[footer] = 'Footer'
+regions[footer__contact_information] = 'Footer - contact information'
+regions[footer__menu] = 'Footer - menu'
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets

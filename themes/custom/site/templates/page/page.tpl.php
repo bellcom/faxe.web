@@ -193,16 +193,10 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-
+            <?php print render($page['footer__contact_information']); ?>
           </div>
           <div class="col-xs-12 col-sm-4">
-
-            <!-- Begin - navigation -->
-            <nav class="layout__footer__navigation" role="navigation">
-              <?php print render($flexy_list__primary); ?>
-            </nav>
-            <!-- End - navigation -->
-
+            <?php print render($page['footer__menu']); ?>
           </div>
           <div class="col-xs-12 col-sm-4">
 
@@ -219,6 +213,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['facebook']['tooltip']; ?>">
                       <span class="icon fa fa-facebook-f"></span>
+                      Facebook
                     </a>
                   </li>
                 <?php endif; ?>
@@ -232,6 +227,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['twitter']['tooltip']; ?>">
                       <span class="icon fa fa-twitter"></span>
+                      Twitter
                     </a>
                   </li>
                 <?php endif; ?>
@@ -245,6 +241,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['googleplus']['tooltip']; ?>">
                       <span class="icon fa fa-google-plus"></span>
+                      Google+
                     </a>
                   </li>
                 <?php endif; ?>
@@ -258,6 +255,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['linkedin']['tooltip']; ?>">
                       <span class="icon fa fa-linkedin"></span>
+                      LinkedIn
                     </a>
                   </li>
                 <?php endif; ?>
@@ -271,6 +269,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['pinterest']['tooltip']; ?>">
                       <span class="icon fa fa-pinterest"></span>
+                      Pinterest
                     </a>
                   </li>
                 <?php endif; ?>
@@ -284,6 +283,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['instagram']['tooltip']; ?>">
                       <span class="icon fa fa-instagram"></span>
+                      Instagram
                     </a>
                   </li>
                 <?php endif; ?>
@@ -297,6 +297,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['youtube']['tooltip']; ?>">
                       <span class="icon fa fa-youtube"></span>
+                      Youtube
                     </a>
                   </li>
                 <?php endif; ?>
@@ -310,6 +311,7 @@
                        data-placement="top"
                        title="<?php print $theme_settings['social_links']['vimeo']['tooltip']; ?>">
                       <span class="icon fa fa-vimeo"></span>
+                      Vimeo
                     </a>
                   </li>
                 <?php endif; ?>
