@@ -49,15 +49,14 @@
       </div>
     </div>
     <div class="flexy-header__row flexy-header__row--second hidden-xs hidden-sm">
-      Second row
 
       <!-- Begin - search -->
       <div class="flexy-header__form hidden-xs hidden-sm">
         <div class="form-inline">
           <?php if (!empty($page['search'])): ?>
-            <?php // print render($page['search']); ?>
+            <?php  print render($page['search']); ?>
           <?php elseif (isset($search_box)) : ?>
-            <?php // print $search_box; ?>
+            <?php  print $search_box; ?>
           <?php endif; ?>
         </div>
       </div>
