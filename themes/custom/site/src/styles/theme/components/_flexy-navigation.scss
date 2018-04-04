@@ -32,6 +32,13 @@
         padding-left: 0;
       }
     }
+
+    &:last-child {
+
+      > a {
+        padding-right: 0;
+      }
+    }
   }
 }
 

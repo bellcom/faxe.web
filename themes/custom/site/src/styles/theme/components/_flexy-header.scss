@@ -21,6 +21,11 @@ $sm-flexy-header-static-row-second-height: 50px;
 $md-flexy-header-static-row-second-height: 70px;
 $lg-flexy-header-static-row-second-height: 70px;
 
+$xs-flexy-header-static-row-third-height: 40px;
+$sm-flexy-header-static-row-third-height: 50px;
+$md-flexy-header-static-row-third-height: 70px;
+$lg-flexy-header-static-row-third-height: 70px;
+
 $xs-logo-font-size: 20px;
 $sm-logo-font-size: 22px;
 $md-logo-font-size: 28px;
@@ -36,17 +41,6 @@ $lg-logo-font-size: 28px;
 // Styling
 // --------------------------------------------------
 
-.flexy-header {
-
-  .social-icon {
-    background-color: $brand-secondary;
-
-    .icon {
-      color: #fff;
-    }
-  }
-}
-
 .flexy-header--static {
 
   .flexy-header__row--first {
@@ -55,17 +49,16 @@ $lg-logo-font-size: 28px;
     background-color: $body-bg-secondary;
   }
 
-  .flexy-header__row--second {
-    position: relative;
-
+  .flexy-header__row--first {
     @include flexy-header-mixin-row-height($xs-flexy-header-static-row-second-height);
 
-    background-color: $body-bg-tertiary;
+    background-color: $body-bg-secondary;
+  }
 
-    .social-icon {
-      height: $xs-flexy-header-static-row-second-height;
-      width: $xs-flexy-header-static-row-second-height;
-    }
+  .flexy-header__row--third {
+    @include flexy-header-mixin-row-height($xs-flexy-header-static-row-third-height);
+
+    background-color: $body-bg-tertiary;
   }
 }
 
@@ -83,7 +76,8 @@ $lg-logo-font-size: 28px;
   }
 
   a {
-    font-size: $font-size-large;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
 
     color: $text-color;
   }
@@ -221,11 +215,6 @@ $lg-logo-font-size: 28px;
     .flexy-header__row--second {
       @include flexy-header-mixin-row-height($sm-flexy-header-static-row-second-height);
 
-      .social-icon {
-        height: $sm-flexy-header-static-row-second-height;
-        width: $sm-flexy-header-static-row-second-height;
-      }
-
       .flexy-header__form {
 
         .form-control,
@@ -233,6 +222,10 @@ $lg-logo-font-size: 28px;
           height: $sm-flexy-header-static-row-second-height;
         }
       }
+    }
+
+    .flexy-header__row--third {
+      @include flexy-header-mixin-row-height($sm-flexy-header-static-row-third-height);
     }
   }
 
@@ -246,12 +239,12 @@ $lg-logo-font-size: 28px;
 
   .flexy-header--static {
 
-    .flexy-header__row--second {
-
-      > .container {
-        padding-right: 125px; // also set in app.js
-      }
-    }
+    //.flexy-header__row--third {
+    //
+    //  > .container {
+    //    padding-right: 125px; // also set in app.js
+    //  }
+    //}
   }
 }
 
@@ -267,11 +260,6 @@ $lg-logo-font-size: 28px;
     .flexy-header__row--second {
       @include flexy-header-mixin-row-height($md-flexy-header-static-row-second-height);
 
-      .social-icon {
-        height: $md-flexy-header-static-row-second-height;
-        width: $md-flexy-header-static-row-second-height;
-      }
-
       .flexy-header__form {
 
         .form-control,
@@ -279,6 +267,10 @@ $lg-logo-font-size: 28px;
           height: $md-flexy-header-static-row-second-height;
         }
       }
+    }
+
+    .flexy-header__row--third {
+      @include flexy-header-mixin-row-height($md-flexy-header-static-row-third-height);
     }
   }
 
@@ -299,11 +291,6 @@ $lg-logo-font-size: 28px;
     .flexy-header__row--second {
       @include flexy-header-mixin-row-height($lg-flexy-header-static-row-second-height);
 
-      .social-icon {
-        height: $lg-flexy-header-static-row-second-height;
-        width: $lg-flexy-header-static-row-second-height;
-      }
-
       .flexy-header__form {
 
         .form-control,
@@ -311,6 +298,10 @@ $lg-logo-font-size: 28px;
           height: $lg-flexy-header-static-row-second-height;
         }
       }
+    }
+
+    .flexy-header__row--third {
+      @include flexy-header-mixin-row-height($lg-flexy-header-static-row-third-height);
     }
   }
 
