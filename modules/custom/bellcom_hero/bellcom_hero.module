@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Bellcom Hero feature.
+ */
+
+include_once 'bellcom_hero.features.inc';
