@@ -55,6 +55,20 @@ function site_preprocess_page(&$variables) {
   $variables['tabs_secondary'] = $variables['tabs'];
   unset($variables['tabs_primary']['#secondary']);
   unset($variables['tabs_secondary']['#primary']);
+
+  // Wrap panels layout.
+  $variables['wrap_panels_layout'] = FALSE;
+
+  $exclude_layouts_from_wrapping = array(
+    'full-width-dark-light-dark',
+    'full-width-light-dark-light',
+    'full-width-dark-light-dark-with-right-sidebar-8-4',
+    'full-width-dark-light-dark-with-right-sidebar-9-3',
+  );
+  if (!empty($variables['panels']->layout)
+      && !in_array($variables['panels']->layout, $exclude_layouts_from_wrapping)) {
+    $variables['wrap_panels_layout'] = TRUE;
+  }
 }
 
 /**
