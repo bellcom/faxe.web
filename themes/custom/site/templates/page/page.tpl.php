@@ -49,19 +49,21 @@
       </div>
     </div>
     <div class="flexy-header__row flexy-header__row--second hidden-xs hidden-sm">
+      <div class="container">
 
-      <!-- Begin - search -->
-      <div class="flexy-header__form hidden-xs hidden-sm">
-        <div class="form-inline">
-          <?php if (!empty($page['search'])): ?>
-            <?php  print render($page['search']); ?>
-          <?php elseif (isset($search_box)) : ?>
-            <?php  print $search_box; ?>
-          <?php endif; ?>
+        <!-- Begin - search -->
+        <div class="flexy-header__form hidden-xs hidden-sm">
+          <div class="form-inline">
+            <?php if (!empty($page['search'])): ?>
+              <?php  print render($page['search']); ?>
+            <?php elseif (isset($search_box)) : ?>
+              <?php  print $search_box; ?>
+            <?php endif; ?>
+          </div>
         </div>
-      </div>
-      <!-- End - search -->
+        <!-- End - search -->
 
+      </div>
     </div>
     <div class="flexy-header__row flexy-header__row--third hidden-xs hidden-sm">
       <div class="container">
@@ -165,23 +167,69 @@
 
     <?php if (!panels_get_current_page_display()): ?>
       <div class="container">
-        <div class="boxy">
 
-          <?php if (!empty($title)): ?>
-          <div class="boxy__heading">
-            <h1 class="boxy__heading__title">
-              <?php print $title; ?>
-            </h1>
-          </div>
-          <?php endif; ?>
+        <?php if (!empty($page['sidebar__left'])): ?>
+          <div class="row">
+            <aside class="hidden-xs col-sm-4 col-md-3" role="complementary">
+              <?php print render($page['sidebar__left']); ?>
+            </aside>
 
-          <div class="boxy__body">
-            <?php print render($page['content']); ?>
+            <section class="col-sm-8 col-md-9">
+
+              <div class="boxy">
+
+                <?php if (!empty($title)): ?>
+                  <div class="boxy__heading">
+                    <h1 class="boxy__heading__title">
+                      <?php print $title; ?>
+                    </h1>
+                  </div>
+                <?php endif; ?>
+
+                <div class="boxy__body">
+                  <?php print render($page['content']); ?>
+                </div>
+              </div>
+
+            </section>
           </div>
-        </div>
+
+        <?php else: ?>
+
+          <div class="boxy">
+
+            <?php if (!empty($title)): ?>
+              <div class="boxy__heading">
+                <h1 class="boxy__heading__title">
+                  <?php print $title; ?>
+                </h1>
+              </div>
+            <?php endif; ?>
+
+            <div class="boxy__body">
+              <?php print render($page['content']); ?>
+            </div>
+          </div>
+
+        <?php endif; ?>
+
       </div>
     <?php else: ?>
-      <?php print render($page['content']); ?>
+
+      <?php if (!empty($page['sidebar__left'])): ?>
+        <div class="row">
+          <aside class="hidden-xs col-sm-4 col-md-3" role="complementary">
+            <?php print render($page['sidebar__left']); ?>
+          </aside>
+
+          <section class="col-sm-8 col-md-9">
+            <?php print render($page['content']); ?>
+          </section>
+        </div>
+      <?php else: ?>
+        <?php print render($page['content']); ?>
+      <?php endif; ?>
+
     <?php endif; ?>
 
   </main>

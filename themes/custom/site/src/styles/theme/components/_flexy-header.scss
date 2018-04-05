@@ -16,15 +16,20 @@ $sm-flexy-header-static-row-first-height: 70px;
 $md-flexy-header-static-row-first-height: 90px;
 $lg-flexy-header-static-row-first-height: 90px;
 
-$xs-flexy-header-static-row-second-height: 40px;
-$sm-flexy-header-static-row-second-height: 50px;
-$md-flexy-header-static-row-second-height: 70px;
-$lg-flexy-header-static-row-second-height: 70px;
+$xs-flexy-header-static-row-second-padding-top: 40px;
+$sm-flexy-header-static-row-second-padding-top: 50px;
+$md-flexy-header-static-row-second-padding-top: 100px;
+$lg-flexy-header-static-row-second-padding-top: 100px;
 
 $xs-flexy-header-static-row-third-height: 40px;
 $sm-flexy-header-static-row-third-height: 50px;
 $md-flexy-header-static-row-third-height: 70px;
 $lg-flexy-header-static-row-third-height: 70px;
+
+$xs-flexy-header-static-search-height: 40px;
+$sm-flexy-header-static-search-height: 40px;
+$md-flexy-header-static-search-height: 60px;
+$lg-flexy-header-static-search-height: 70px;
 
 $xs-logo-font-size: 20px;
 $sm-logo-font-size: 22px;
@@ -49,10 +54,13 @@ $lg-logo-font-size: 28px;
     background-color: $body-bg-secondary;
   }
 
-  .flexy-header__row--first {
-    @include flexy-header-mixin-row-height($xs-flexy-header-static-row-second-height);
+  .flexy-header__row--second {
+    padding-top: $xs-flexy-header-static-row-second-padding-top;
 
-    background-color: $body-bg-secondary;
+    background-image: url('../images/page-header.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-color: $body-bg;
   }
 
   .flexy-header__row--third {
@@ -92,94 +100,94 @@ $lg-logo-font-size: 28px;
     text-decoration: none;
   }
 }
-
-.flexy-header__form {
-  position: absolute;
-
-  right: 0;
-
-  form {
-    position: relative;
-  }
-
-  .form-inline {
-
-    .input-group {
-      display: block;
-    }
-  }
-
-  .input-group {
-
-    .form-control {
-      @include border-right-radius($border-radius-large);
-    }
-
-    .input-group-addon {
-      display: none;
-    }
-  }
-
-  .form-actions {
-    display: none;
-  }
-
-  .form-control {
-    @extend .input-lg;
-
-    padding-right: 50px; // The width of the button, so the text dont go underneath
-
-    border: 0;
-
-    font-size: $font-size-base;
-    color: #fff;
-    background-color: $brand-primary;
-
-    @include placeholder(#fff);
-  }
-
-  .btn {
-    @extend .btn-lg;
-
-    position: absolute;
-
-    z-index: 2000;
-
-    top: 0;
-    right: 0;
-
-    background-color: transparent;
-    border: 0;
-
-    font-size: 0;
-
-    color: $text-color;
-
-    &:after {
-      @extend .fa;
-
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-
-      top: 50%;
-      left: 50%;
-
-      height: 30px;
-      width: 30px;
-
-      margin-top: -15px;
-      margin-right: -15px;
-
-      font-size: $font-size-large;
-
-      content: $fa-var-search;
-
-      color :#fff;
-    }
-  }
-}
+//
+//.flexy-header__form {
+//  position: absolute;
+//
+//  right: 0;
+//
+//  form {
+//    position: relative;
+//  }
+//
+//  .form-inline {
+//
+//    .input-group {
+//      display: block;
+//    }
+//  }
+//
+//  .input-group {
+//
+//    .form-control {
+//      @include border-right-radius($border-radius-large);
+//    }
+//
+//    .input-group-addon {
+//      display: none;
+//    }
+//  }
+//
+//  .form-actions {
+//    display: none;
+//  }
+//
+//  .form-control {
+//    @extend .input-lg;
+//
+//    padding-right: 50px; // The width of the button, so the text dont go underneath
+//
+//    border: 0;
+//
+//    font-size: $font-size-base;
+//    color: #fff;
+//    background-color: $brand-primary;
+//
+//    @include placeholder(#fff);
+//  }
+//
+//  .btn {
+//    @extend .btn-lg;
+//
+//    position: absolute;
+//
+//    z-index: 2000;
+//
+//    top: 0;
+//    right: 0;
+//
+//    background-color: transparent;
+//    border: 0;
+//
+//    font-size: 0;
+//
+//    color: $text-color;
+//
+//    &:after {
+//      @extend .fa;
+//
+//      display: flex;
+//
+//      justify-content: center;
+//      align-items: center;
+//
+//      top: 50%;
+//      left: 50%;
+//
+//      height: 30px;
+//      width: 30px;
+//
+//      margin-top: -15px;
+//      margin-right: -15px;
+//
+//      font-size: $font-size-large;
+//
+//      content: $fa-var-search;
+//
+//      color :#fff;
+//    }
+//  }
+//}
 
 .flexy-header__sidebar-toggle {
   border: 0;
@@ -213,13 +221,13 @@ $lg-logo-font-size: 28px;
     }
 
     .flexy-header__row--second {
-      @include flexy-header-mixin-row-height($sm-flexy-header-static-row-second-height);
+      padding-top: $sm-flexy-header-static-row-second-padding-top;
 
       .flexy-header__form {
 
         .form-control,
         .btn {
-          height: $sm-flexy-header-static-row-second-height;
+          height: $sm-flexy-header-static-search-height;
         }
       }
     }
@@ -235,18 +243,7 @@ $lg-logo-font-size: 28px;
 }
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {
-
-  .flexy-header--static {
-
-    //.flexy-header__row--third {
-    //
-    //  > .container {
-    //    padding-right: 125px; // also set in app.js
-    //  }
-    //}
-  }
-}
+@media #{$breakpoint-desktop-and-up} {}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {
@@ -258,13 +255,13 @@ $lg-logo-font-size: 28px;
     }
 
     .flexy-header__row--second {
-      @include flexy-header-mixin-row-height($md-flexy-header-static-row-second-height);
+      padding-top: $md-flexy-header-static-row-second-padding-top;
 
       .flexy-header__form {
 
         .form-control,
         .btn {
-          height: $md-flexy-header-static-row-second-height;
+          height: $md-flexy-header-static-search-height;
         }
       }
     }
@@ -289,13 +286,13 @@ $lg-logo-font-size: 28px;
     }
 
     .flexy-header__row--second {
-      @include flexy-header-mixin-row-height($lg-flexy-header-static-row-second-height);
+      padding-top: $lg-flexy-header-static-row-second-padding-top;
 
       .flexy-header__form {
 
         .form-control,
         .btn {
-          height: $lg-flexy-header-static-row-second-height;
+          height: $lg-flexy-header-static-search-height;
         }
       }
     }
