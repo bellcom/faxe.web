@@ -26,17 +26,6 @@ function site_preprocess_html(&$variables) {
 }
 
 /**
- * Override or insert variables into the page template for HTML output.
- */
-function site_process_html(&$variables) {
-
-  // Hook into color.module.
-  if (module_exists('color')) {
-    _color_html_alter($variables);
-  }
-}
-
-/**
  * Implements hook_preprocess_page().
  */
 function site_preprocess_page(&$variables) {
@@ -50,36 +39,11 @@ function site_preprocess_page(&$variables) {
   // Navigation
   $variables['flexy_navigation__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_navigation', FALSE, 1);
 
-  // Tabs.
+  // Tabs
   $variables['tabs_primary'] = $variables['tabs'];
   $variables['tabs_secondary'] = $variables['tabs'];
   unset($variables['tabs_primary']['#secondary']);
   unset($variables['tabs_secondary']['#primary']);
-
-  // Wrap panels layout.
-  $variables['wrap_panels_layout'] = FALSE;
-
-  $exclude_layouts_from_wrapping = array(
-    'full-width-dark-light-dark',
-    'full-width-light-dark-light',
-    'full-width-dark-light-dark-with-right-sidebar-8-4',
-    'full-width-dark-light-dark-with-right-sidebar-9-3',
-  );
-  if (!empty($variables['panels']->layout)
-      && !in_array($variables['panels']->layout, $exclude_layouts_from_wrapping)) {
-    $variables['wrap_panels_layout'] = TRUE;
-  }
-}
-
-/**
- * Override or insert variables into the page template.
- */
-function site_process_page(&$variables) {
-
-  // Hook into color.module.
-  if (module_exists('color')) {
-    _color_page_alter($variables);
-  }
 }
 
 /**
