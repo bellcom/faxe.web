@@ -20,59 +20,62 @@
 // Styling
 // --------------------------------------------------
 
-.menu {
+.layout__content {
 
-  &,
-  &.nav {
+  .menu {
 
-    > li {
+    &,
+    &.nav {
 
-      > a {
-        position: relative;
-
-        padding-top: 25px;
-        padding-bottom: 25px;
-
-        font-size: $font-size-large;
-
-        color: $text-color;
-
-        &:after {
-          @extend .fa;
-          position: absolute;
-
-          display: flex;
-
-          justify-content: center;
-          align-items: center;
-
-          top: 50%;
-          right: 0;
-
-          content: $fa-var-angle-right;
-
-          margin-top: -20px; // Half the height
-
-          height: 40px;
-          width: 40px;
-
-          color: #fff;
-          background-color: $brand-primary;
-        }
-
-        &:hover {
-          color: $brand-primary;
-          background-color: $body-bg-tertiary;
-        }
-      }
-
-      &.active {
+      > li {
 
         > a {
+          position: relative;
 
-          &, &:hover {
+          padding-top: 25px;
+          padding-bottom: 25px;
+
+          font-size: $font-size-large;
+
+          color: $text-color;
+
+          &:after {
+            @extend .fa;
+            position: absolute;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            top: 50%;
+            right: 0;
+
+            content: $fa-var-angle-right;
+
+            margin-top: -20px; // Half the height
+
+            height: 40px;
+            width: 40px;
+
+            color: #fff;
+            background-color: $brand-primary;
+          }
+
+          &:hover {
             color: $brand-primary;
-            background-color: #e5e0de;
+            background-color: $body-bg-tertiary;
+          }
+        }
+
+        &.active {
+
+          > a {
+
+            &, &:hover {
+              color: $brand-primary;
+              background-color: #e5e0de;
+            }
           }
         }
       }
