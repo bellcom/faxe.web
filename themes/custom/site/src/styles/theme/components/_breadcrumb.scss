@@ -28,38 +28,10 @@
   margin: 0 15px $grid-gutter-width 0;
   border-radius: 0;
 
-  > li {
-
-    &:first-child {
-      padding-left: 0;
-
-      a {
-
-        &:before {
-          display: inline-block;
-
-          @extend .fa;
-          content: $fa-var-home;
-
-          margin-right: 10px;
-
-          font-size: $font-size-large;
-          color: $brand-primary;
-        }
-      }
-    }
-
-    + li:before {
-      @extend .fa;
-      content: $fa-var-angle-right;
-
-      padding: 0 10px;
-
-      font-size: $font-size-large;
-    }
-  }
-
+  &,
   a {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
 
     &, &:hover {
       color: $text-color;

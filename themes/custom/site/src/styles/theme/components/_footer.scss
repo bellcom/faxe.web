@@ -89,7 +89,8 @@ $lg-layout-footer-top-bottom-padding: 80px;
         > a {
           padding: 5px 0;
 
-          &:hover {
+          &:hover,
+          &:focus {
             background-color: transparent;
           }
         }

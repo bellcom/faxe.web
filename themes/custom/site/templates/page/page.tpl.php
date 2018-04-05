@@ -127,11 +127,11 @@
       <?php print render($page['banner']); ?>
     <?php endif; ?>
 
-    <!-- Begin - breadcrumb -->
-    <?php print $breadcrumb; ?>
-    <!-- End - breadcrumb -->
-
     <div class="container">
+
+      <!-- Begin - breadcrumb -->
+      <?php print $breadcrumb; ?>
+      <!-- End - breadcrumb -->
 
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
