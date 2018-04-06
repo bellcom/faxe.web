@@ -55,12 +55,18 @@ $lg-logo-font-size: 28px;
   }
 
   .flexy-header__row--second {
+    height: initial;
+
     padding-top: $xs-flexy-header-static-row-second-padding-top;
 
     background-image: url('../images/page-header.jpg');
     background-size: cover;
     background-position: center center;
     background-color: $body-bg;
+
+    .container {
+      height: initial;
+    }
   }
 
   .flexy-header__row--third {
@@ -100,94 +106,96 @@ $lg-logo-font-size: 28px;
     text-decoration: none;
   }
 }
-//
-//.flexy-header__form {
-//  position: absolute;
-//
-//  right: 0;
-//
-//  form {
-//    position: relative;
-//  }
-//
-//  .form-inline {
-//
-//    .input-group {
-//      display: block;
-//    }
-//  }
-//
-//  .input-group {
-//
-//    .form-control {
-//      @include border-right-radius($border-radius-large);
-//    }
-//
-//    .input-group-addon {
-//      display: none;
-//    }
-//  }
-//
-//  .form-actions {
-//    display: none;
-//  }
-//
-//  .form-control {
-//    @extend .input-lg;
-//
-//    padding-right: 50px; // The width of the button, so the text dont go underneath
-//
-//    border: 0;
-//
-//    font-size: $font-size-base;
-//    color: #fff;
-//    background-color: $brand-primary;
-//
-//    @include placeholder(#fff);
-//  }
-//
-//  .btn {
-//    @extend .btn-lg;
-//
-//    position: absolute;
-//
-//    z-index: 2000;
-//
-//    top: 0;
-//    right: 0;
-//
-//    background-color: transparent;
-//    border: 0;
-//
-//    font-size: 0;
-//
-//    color: $text-color;
-//
-//    &:after {
-//      @extend .fa;
-//
-//      display: flex;
-//
-//      justify-content: center;
-//      align-items: center;
-//
-//      top: 50%;
-//      left: 50%;
-//
-//      height: 30px;
-//      width: 30px;
-//
-//      margin-top: -15px;
-//      margin-right: -15px;
-//
-//      font-size: $font-size-large;
-//
-//      content: $fa-var-search;
-//
-//      color :#fff;
-//    }
-//  }
-//}
+
+.flexy-header__form {
+
+  form {
+    position: relative;
+
+    margin-right: 70px;
+  }
+
+  .form-inline {
+
+    .form-group,
+    .input-group {
+      display: block;
+    }
+  }
+
+  .input-group {
+
+    .form-control {
+      @include border-right-radius($border-radius-large);
+    }
+
+    .input-group-addon {
+      display: none;
+    }
+  }
+
+  .form-actions {
+    display: none;
+  }
+
+  .form-control {
+    @extend .input-lg;
+
+    padding-right: 80px; // The width of the button, so the text dont go underneath
+
+    width: 100%;
+
+    border: 0;
+
+    font-weight: $font-weight-bold;
+    background-color: #fff;
+
+    @include placeholder($text-color);
+  }
+
+  .btn {
+    @extend .btn-lg;
+
+    position: absolute;
+
+    z-index: 2000;
+
+    top: 0;
+    right: 0;
+
+    width: 80px;
+
+    border: 0;
+
+    font-size: 0;
+
+    color: $text-color;
+
+    &:after {
+      @extend .fa;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      top: 50%;
+      left: 50%;
+
+      height: 30px;
+      width: 30px;
+
+      margin-top: -15px;
+      margin-right: -15px;
+
+      font-size: $font-size-large;
+
+      content: $fa-var-search;
+
+      color :#fff;
+    }
+  }
+}
 
 .flexy-header__sidebar-toggle {
   border: 0;
