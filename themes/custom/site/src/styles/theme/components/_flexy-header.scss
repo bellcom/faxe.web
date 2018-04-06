@@ -139,7 +139,7 @@ $lg-logo-font-size: 28px;
   }
 
   .dropdown {
-    top: 100%;
+    height: $input-height-large; // Same height as input, so it comes below
   }
 
   .form-control {
