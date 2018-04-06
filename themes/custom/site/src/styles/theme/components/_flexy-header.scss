@@ -138,6 +138,10 @@ $lg-logo-font-size: 28px;
     display: none;
   }
 
+  .dropdown {
+    top: 100%;
+  }
+
   .form-control {
     @extend .input-lg;
 
