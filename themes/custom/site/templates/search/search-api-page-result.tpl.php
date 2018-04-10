@@ -12,6 +12,10 @@ $title = (strlen($title) > 45) ? substr($title, 0, 45) . '...' : $title;
           <h3 class="entity-list-advanced__heading__title heading-h4"><?php print check_plain($title); ?></h3>
         </div>
 
+        <span class="entity-list-advanced__path">
+          <?php print t('Located at: !path', array('!path' => drupal_get_path_alias($url['path']))); ?>
+        </span>
+
         <?php if ($snippet OR $info) : ?>
           <div class="entity-list-advanced__search-snippet">
 
@@ -25,10 +29,6 @@ $title = (strlen($title) > 45) ? substr($title, 0, 45) . '...' : $title;
 
           </div>
         <?php endif; ?>
-
-        <span class="entity-list-advanced__path">
-          <?php print t('Located at: !path', array('!path' => drupal_get_path_alias($url['path']))); ?>
-        </span>
 
       </div>
 
