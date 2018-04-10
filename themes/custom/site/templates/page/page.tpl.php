@@ -132,7 +132,9 @@
     <div class="container">
 
       <!-- Begin - breadcrumb -->
-      <?php print $breadcrumb; ?>
+      <div class="hidden-xs">
+        <?php print $breadcrumb; ?>
+      </div>
       <!-- End - breadcrumb -->
 
       <?php if (!empty($page['help'])): ?>
