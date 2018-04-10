@@ -170,11 +170,11 @@
 
         <?php if (!empty($page['sidebar__left'])): ?>
           <div class="row">
-            <aside class="hidden-xs col-sm-4 col-md-3" role="complementary">
+            <aside class="hidden-xs col-sm-4" role="complementary">
               <?php print render($page['sidebar__left']); ?>
             </aside>
 
-            <section class="col-sm-8 col-md-9">
+            <section class="col-sm-8">
 
               <div class="boxy">
 
@@ -218,11 +218,11 @@
 
       <?php if (!empty($page['sidebar__left'])): ?>
         <div class="row">
-          <aside class="hidden-xs col-sm-4 col-md-3" role="complementary">
+          <aside class="hidden-xs col-sm-4" role="complementary">
             <?php print render($page['sidebar__left']); ?>
           </aside>
 
-          <section class="col-sm-8 col-md-9">
+          <section class="col-sm-8">
             <?php print render($page['content']); ?>
           </section>
         </div>
