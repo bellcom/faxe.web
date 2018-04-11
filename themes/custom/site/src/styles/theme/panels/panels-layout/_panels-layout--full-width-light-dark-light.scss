@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Event
+// | Full width - light/dark/light/dark
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .entity-teaser--os2sub-event
+// | - .panels-layout--full-width-light-dark-light
 // |
 
 // --------------------------------------------------
@@ -14,13 +14,18 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin entity-teaser--os2sub-event-mixin() {}
+@mixin panels-layout-full-width-light-dark-light-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.entity-teaser--os2sub-event {}
+.panels-layout--full-width-light-dark-light {
+
+  .panel-separator {
+    height: $xs-sectioned-inner-spacing;
+  }
+}
 
 // --------------------------------------------------
 // Variants
@@ -40,16 +45,49 @@
 @media #{$breakpoint-tablet-and-up} {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {}
+@media #{$breakpoint-tablet-only} {
+
+  .panels-layout--full-width-light-dark-light {
+
+    .panel-separator {
+      height: $sm-sectioned-inner-spacing;
+    }
+  }
+}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+
+  .panels-layout--full-width-light-dark-light {
+
+    .panel-separator {
+      height: $md-sectioned-inner-spacing;
+    }
+
+    &.panels-display--sitestruktur-niveau-1 {
+
+      .sectioned--light--no-1 {
+        background-image: url('../images/watermark.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {}
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .panels-layout--full-width-light-dark-light {
+
+    .panel-separator {
+      height: $lg-sectioned-inner-spacing;
+    }
+  }
+}
 
 // Print
 @media print {}

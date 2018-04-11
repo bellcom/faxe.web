@@ -23,7 +23,7 @@ $teaser-spacing-top-bottom: 10px;
 // --------------------------------------------------
 
 .entity-teaser {
-  margin-bottom: floor( ( $grid-gutter-width / 2 ) );
+  margin-bottom: $grid-gutter-width;
   padding: $teaser-spacing-top-bottom $xs-boxy-spacing-left-right;
 
   background-color: $body-bg-secondary;
