@@ -1,5 +1,5 @@
 // |--------------------------------------------------------------------------
-// | Teaser
+// | Spotbox
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
@@ -10,65 +10,76 @@
 // Variables
 // --------------------------------------------------
 
-$teaser-spacing-top-bottom: 10px;
-
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin entity-spotbox-mixin() {}
+@mixin entity-spotbox-os2web-spotbox-box-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
 .entity-spotbox {
+  position: relative;
+
   margin-bottom: floor( ( $grid-gutter-width / 2 ) );
-  padding: $teaser-spacing-top-bottom $xs-boxy-spacing-left-right;
 
-  background-color: $body-bg-secondary;
-}
+  min-height: 200px;
 
-.entity-spotbox__image {
-
-  img {
-    width: 100%;
-  }
-}
-
-.entity-spotbox__date {
-  color: $brand-primary;
-
-  text-align: right;
-
-  + .entity-spotbox__heading {
-    margin-top: 10px;
-  }
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .entity-spotbox__heading {
+  position: absolute;
 
-  + .entity-spotbox__body {
-    margin-top: 15px;
-  }
+  right: 0;
+  bottom: 0;
+
+  margin: 0 0 0 $xs-boxy-spacing-left-right;
+  padding: 15px 60px 15px 15px;
+
+  min-width: 50%;
+
+  background-color: $body-bg-secondary;
 }
 .entity-spotbox__heading__title {
   margin: 0;
 
   font-weight: $headings-font-weight-bold;
-
-  color: $brand-primary;
+  color: $text-color;
 
   .entity-spotbox:hover & {
     text-decoration: underline;
   }
-}
 
-.entity-spotbox__body {
-  padding-bottom: 20px;
-}
+  &:after {
+    @extend .fa;
+    position: absolute;
 
-.entity-spotbox__description {}
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    top: 50%;
+    right: 0;
+
+    content: $fa-var-angle-right;
+
+    margin-top: -20px; // Half the height
+
+    height: 40px;
+    width: 40px;
+
+    font-size: $font-size-large;
+
+    color: $text-color;
+    background-color: transparent;
+  }
+}
 
 // --------------------------------------------------
 // Variants
@@ -90,8 +101,8 @@ $teaser-spacing-top-bottom: 10px;
 // Tablet - only
 @media #{$breakpoint-tablet-only} {
 
-  .entity-spotbox {
-    padding: $teaser-spacing-top-bottom $sm-boxy-spacing-left-right;
+  .entity-spotbox__heading {
+    margin: 0 0 0 $sm-boxy-spacing-left-right;
   }
 }
 
@@ -101,16 +112,16 @@ $teaser-spacing-top-bottom: 10px;
 // Desktop - only
 @media #{$breakpoint-desktop-only} {
 
-  .entity-spotbox {
-    padding: $teaser-spacing-top-bottom $md-boxy-spacing-left-right;
+  .entity-spotbox__heading {
+    margin: 0 0 0 $md-boxy-spacing-left-right;
   }
 }
 
 // Large desktop - and up
 @media #{$breakpoint-large-desktop-and-up} {
 
-  .entity-spotbox {
-    padding: $teaser-spacing-top-bottom $lg-boxy-spacing-left-right;
+  .entity-spotbox__heading {
+    margin: 0 0 0 $lg-boxy-spacing-left-right;
   }
 }
 
