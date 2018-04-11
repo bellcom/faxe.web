@@ -23,7 +23,7 @@
 .entity-spotbox {
   position: relative;
 
-  margin-bottom: floor( ( $grid-gutter-width / 2 ) );
+  margin-bottom: $grid-gutter-width;
 
   min-height: 200px;
 
