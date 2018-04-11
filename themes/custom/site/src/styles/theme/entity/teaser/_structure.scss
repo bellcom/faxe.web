@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Spotbox
+// | Structure
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .entity-teaser--os2web-spotbox-box
+// | - .entity-teaser--os2web-base-tax-site-structure
 // |
 
 // --------------------------------------------------
@@ -14,59 +14,39 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin entity-teaser-os2web-spotbox-box-mixin() {}
+@mixin entity-teaser--os2web-base-tax-site-structure-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.entity-teaser--os2web-spotbox-box {
-  position: relative;
+.entity-teaser--os2web-base-tax-site-structure {
+  flex-grow: 1;
 
-  min-height: 290px;
+  min-height: 250px;
 
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-bottom: $grid-gutter-width;
 
-  .entity-teaser__heading {
-    position: absolute;
+  .entity-teaser__logo {
 
-    left: 0;
-    bottom: 0;
+    img {
+      margin: auto;
+    }
 
-    margin: 0;
-    padding: 20px 60px 20px $boxy-spacing-left-right;
-
-    min-width: 50%;
-
-    background-color: $body-bg-secondary;
+    + .entity-teaser__heading {
+      margin-top: 10px;
+    }
   }
-  .entity-teaser__heading__title {
-    font-weight: $headings-font-weight-bold;
-    color: $text-color;
 
-    &:after {
-      @extend .fa;
-      position: absolute;
+  .entity-teaser__heading,
+  .entity-teaser__body {
+    text-align: center;
+  }
 
-      display: flex;
+  &:hover {
 
-      justify-content: center;
-      align-items: center;
-
-      top: 50%;
-      right: 0;
-
-      content: $fa-var-angle-right;
-
-      margin-top: -20px; // Half the height
-
-      height: 40px;
-      width: 40px;
-
-      color: $brand-primary;
-      background-color: transparent;
+    .entity-teaser__heading__title {
+      text-decoration: none;
     }
   }
 }

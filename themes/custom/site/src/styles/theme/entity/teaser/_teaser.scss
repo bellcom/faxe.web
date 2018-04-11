@@ -70,6 +70,21 @@ $teaser-spacing-top-bottom: 10px;
 
 .entity-teaser__description {}
 
+.entity-teaser__links {
+
+  .field-item + .field-item {
+    margin-top: 4px;
+  }
+
+  a {
+    font-size: $font-size-small;
+
+    &, &:hover {
+      color: $text-color;
+    }
+  }
+}
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
