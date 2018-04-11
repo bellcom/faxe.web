@@ -1,0 +1,124 @@
+// |--------------------------------------------------------------------------
+// | Teaser
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .entity-spotbox
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+$teaser-spacing-top-bottom: 10px;
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin entity-spotbox-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.entity-spotbox {
+  margin-bottom: floor( ( $grid-gutter-width / 2 ) );
+  padding: $teaser-spacing-top-bottom $xs-boxy-spacing-left-right;
+
+  background-color: $body-bg-secondary;
+}
+
+.entity-spotbox__image {
+
+  img {
+    width: 100%;
+  }
+}
+
+.entity-spotbox__date {
+  color: $brand-primary;
+
+  text-align: right;
+
+  + .entity-spotbox__heading {
+    margin-top: 10px;
+  }
+}
+
+.entity-spotbox__heading {
+
+  + .entity-spotbox__body {
+    margin-top: 15px;
+  }
+}
+.entity-spotbox__heading__title {
+  margin: 0;
+
+  font-weight: $headings-font-weight-bold;
+
+  color: $brand-primary;
+
+  .entity-spotbox:hover & {
+    text-decoration: underline;
+  }
+}
+
+.entity-spotbox__body {
+  padding-bottom: 20px;
+}
+
+.entity-spotbox__description {}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+  .entity-spotbox {
+    padding: $teaser-spacing-top-bottom $sm-boxy-spacing-left-right;
+  }
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {
+
+  .entity-spotbox {
+    padding: $teaser-spacing-top-bottom $md-boxy-spacing-left-right;
+  }
+}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {
+
+  .entity-spotbox {
+    padding: $teaser-spacing-top-bottom $lg-boxy-spacing-left-right;
+  }
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
