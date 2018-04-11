@@ -5,7 +5,7 @@
 
   <?php if ($content['light_section_1']): ?>
     <!-- Begin - light section no. 1 -->
-    <div class="sectioned sectioned--light">
+    <div class="sectioned sectioned--light sectioned--light--no-1">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">
@@ -23,7 +23,7 @@
 
   <?php if ($content['dark_section_1']): ?>
     <!-- Begin - dark section no. 1 -->
-    <div class="sectioned sectioned--dark">
+    <div class="sectioned sectioned--dark sectioned--dark--no-1">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">
@@ -41,7 +41,7 @@
 
   <?php if ($content['light_section_2']): ?>
     <!-- Begin - light section no. 2 -->
-    <div class="sectioned sectioned--light">
+    <div class="sectioned sectioned--light sectioned--light--no-2">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">
@@ -59,7 +59,7 @@
 
   <?php if ($content['dark_section_2']): ?>
     <!-- Begin - dark section no. 2 -->
-    <div class="sectioned sectioned--dark">
+    <div class="sectioned sectioned--dark sectioned--dark--no-2">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">

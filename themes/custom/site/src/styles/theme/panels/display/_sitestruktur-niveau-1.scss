@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Sectioned
+// | Site struktur niveau 1
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .sectioned
+// | - .panels-display--sitestruktur-niveau-1
 // |
 
 // --------------------------------------------------
@@ -14,23 +14,20 @@
 // Mixins
 // --------------------------------------------------
 
+@mixin panels-display--sitestruktur-niveau-1-mixin() {}
+
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.sectioned {}
+.panels-display--sitestruktur-niveau-1 {
+
+
+}
 
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
-
-.sectioned--dark {
-  @include sectioned-mixin($body-bg-quaternary);
-}
-
-.sectioned--light {
-  @include sectioned-mixin($body-bg);
-}
 
 // --------------------------------------------------
 // Responsive
