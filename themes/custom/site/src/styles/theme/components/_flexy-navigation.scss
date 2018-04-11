@@ -22,32 +22,28 @@
 // Styling
 // --------------------------------------------------
 
-.flexy-navigation {
-
-  .flexy-navigation__item {
-
-    &:first-child {
-
-      > a {
-        padding-left: 0;
-      }
-    }
-
-    &:last-child {
-
-      > a {
-        padding-right: 0;
-      }
-    }
-  }
-}
-
 .flexy-navigation__item--dropdown {
 
   > a {
 
     &:after {
       display: none !important;
+    }
+  }
+}
+
+.flexy-navigation__item {
+
+  &.active,
+  &.active-trail {
+
+    &,
+    &:hover {
+
+      > a {
+        color: $flexy-navigation-item-active-link-font-color;
+        background-color: $flexy-navigation-item-active-link-background-color;
+      }
     }
   }
 }

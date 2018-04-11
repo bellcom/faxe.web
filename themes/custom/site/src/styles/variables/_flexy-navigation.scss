@@ -7,11 +7,11 @@ $flexy-navigation-item-link-font-weight: $font-weight-bold;
 $flexy-navigation-item-link-font-color: $text-color !default;
 $flexy-navigation-item-link-background-color: transparent !default;
 
-$flexy-navigation-item-link-hover-font-color: $text-color !default;
-$flexy-navigation-item-link-hover-background-color: transparent !default;
+$flexy-navigation-item-link-hover-font-color: #fff;
+$flexy-navigation-item-link-hover-background-color: $brand-primary;
 
-$flexy-navigation-item-active-link-font-color: $brand-primary !default;
-$flexy-navigation-item-active-link-background-color: transparent !default;
+$flexy-navigation-item-active-link-font-color: #fff;
+$flexy-navigation-item-active-link-background-color: $brand-primary;
 
 $flexy-navigation-item-dropdown-icon: $fa-var-angle-down !default;
 
