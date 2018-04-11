@@ -20,12 +20,9 @@
         <div class="flexy-row">
 
           <!-- Begin - logo -->
-          <a href="<?php print $front_page; ?>"
-             class="flexy-header__logo">
+          <a href="<?php print $front_page; ?>" class="flexy-header__logo">
             <img src="<?php print $logo; ?>"
-                 alt="<?php print t('@site_name logo', ['@site_name' => $site_name]); ?>"/>
-
-            <?php print $site_name; ?>
+                 alt="<?php print t('@site_name logo', array('@site_name' => $site_name)); ?>"/>
           </a>
           <!-- End - logo -->
 
@@ -91,12 +88,9 @@
         <div class="flexy-row">
 
           <!-- Begin - logo -->
-          <a href="<?php print $front_page; ?>"
-             class="flexy-header__logo">
+          <a href="<?php print $front_page; ?>" class="flexy-header__logo">
             <img src="<?php print $logo; ?>"
-                 alt="<?php print t('@site_name logo', ['@site_name' => $site_name]); ?>"/>
-
-            <?php print $site_name; ?>
+                 alt="<?php print t('@site_name logo', array('@site_name' => $site_name)); ?>"/>
           </a>
           <!-- End - logo -->
 
