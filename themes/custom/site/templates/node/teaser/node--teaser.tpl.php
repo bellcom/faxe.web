@@ -10,7 +10,14 @@
     </div>
 
     <div class="entity-teaser__body">
-      <?php print render($content); ?>
+      <?php
+      // Hide comments, tags, and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      hide($content['field_tags']);
+      
+      print render($content);
+      ?>
     </div>
 
   </a>
