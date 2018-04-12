@@ -1,0 +1,82 @@
+// |--------------------------------------------------------------------------
+// | Taxonomy heading
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .taxonomy-heading
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin taxonomy-heading-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.taxonomy-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.taxonomy-heading__icon {
+
+  img {
+    max-height: 50px;
+    width: auto;
+  }
+
+  + .taxonomy-heading__title {
+    margin-left: 20px;
+  }
+}
+.taxonomy-heading__title {
+  font-weight: $headings-font-weight-bold;
+  font-size: $font-size-h1;
+  color: $brand-primary;
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

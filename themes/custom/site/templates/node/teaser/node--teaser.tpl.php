@@ -15,7 +15,7 @@
       hide($content['comments']);
       hide($content['links']);
       hide($content['field_tags']);
-      
+
       print render($content);
       ?>
     </div>
