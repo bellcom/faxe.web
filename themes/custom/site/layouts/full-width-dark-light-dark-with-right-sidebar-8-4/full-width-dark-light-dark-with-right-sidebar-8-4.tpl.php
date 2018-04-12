@@ -17,8 +17,8 @@
   <?php endif; ?>
 
   <?php if ($content['content'] or $content['sidebar']): ?>
-    <!-- Begin - dark section -->
-    <div class="sectioned sectioned--dark">
+    <!-- Begin - light section -->
+    <div class="sectioned sectioned--light">
       <div class="sectioned__inner">
         <div class="container">
           <div class="row">
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <!-- End - dark section -->
+    <!-- End - light section -->
   <?php endif ?>
 
   <?php if ($content['light_section_1']): ?>
