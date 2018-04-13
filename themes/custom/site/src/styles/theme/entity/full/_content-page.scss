@@ -27,22 +27,24 @@
     + .node__contact-block,
     + .node__paragraphs,
     + .node__pdf-files {
-      margin-top: floor( ( $grid-gutter-width / 2 ) );
+      margin-top: $grid-gutter-width;
     }
   }
 
   .node__contact-block {
 
     + .node__paragraphs,
-    + .node__pdf-files {
-      margin-top: floor( ( $grid-gutter-width / 2 ) );
+    + .node__pdf-files,
+    + .node__webform {
+      margin-top: $grid-gutter-width;
     }
   }
 
   .node__pdf-files {
 
-    + .node__paragraphs {
-      margin-top: floor( ( $grid-gutter-width / 2 ) );
+    + .node__paragraphs,
+    + .node__webform {
+      margin-top: $grid-gutter-width;
     }
   }
 
@@ -50,6 +52,10 @@
 
     .accordion {
       margin: 5px 0;
+    }
+
+    + .node__webform {
+      margin-top: $grid-gutter-width;
     }
   }
 }
