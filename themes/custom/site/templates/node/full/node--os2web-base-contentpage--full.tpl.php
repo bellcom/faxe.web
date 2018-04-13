@@ -41,10 +41,10 @@
     <!-- End - PDF files -->
   <?php endif; ?>
 
-  <?php if (isset($content['field_afsnit'])): ?>
+  <?php if (isset($content['field_afsnit_paragraphs'])): ?>
     <!-- Begin - paragraphs -->
     <div class="node__paragraphs">
-      <?php print render($content['field_afsnit']); ?>
+      <?php print render($content['field_afsnit_paragraphs']); ?>
     </div>
     <!-- End - paragraphs -->
   <?php endif; ?>
