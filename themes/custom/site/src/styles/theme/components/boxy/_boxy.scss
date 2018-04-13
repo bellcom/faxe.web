@@ -31,8 +31,25 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
 }
 
 .boxy__heading {
+  position: relative;
+
   padding-left: $xs-boxy-spacing-left-right;
   padding-right: $xs-boxy-spacing-left-right;
+
+  &:after {
+    display: block;
+    position: absolute;
+
+    content: "";
+
+    height: 2px;
+    width: 140px;
+
+    left: 0;
+    bottom: (($boxy-heading-spacing-top-bottom / 2) - 1px);
+
+    background-color: $body-bg-quaternary;
+  }
 }
 
 .boxy__body {
