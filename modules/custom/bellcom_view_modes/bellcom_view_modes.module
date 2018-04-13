@@ -1,0 +1,73 @@
+<?php
+
+/*
+* Implements hook_entity_info_alter().
+*/
+function bellcom_view_modes_entity_info_alter(&$entity_info) {
+
+  // List - simple
+  $entity_info['node']['view modes']['list_simple'] = [
+    'label' => t('List - simple'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['taxonomy_term']['view modes']['list_simple'] = [
+    'label' => t('List - simple'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['user']['view modes']['list_simple'] = [
+    'label' => t('List - simple'),
+    'custom settings' => FALSE,
+  ];
+
+  // List - default
+  $entity_info['node']['view modes']['list'] = [
+    'label' => t('List - default'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['taxonomy_term']['view modes']['list'] = [
+    'label' => t('List - default'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['user']['view modes']['list'] = [
+    'label' => t('List - default'),
+    'custom settings' => FALSE,
+  ];
+
+  // List - advanced
+  $entity_info['node']['view modes']['list_advanced'] = [
+    'label' => t('List - advanced'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['taxonomy_term']['view modes']['list_advanced'] = [
+    'label' => t('List - advanced'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['user']['view modes']['list_advanced'] = [
+    'label' => t('List - advanced'),
+    'custom settings' => FALSE,
+  ];
+
+  // Embedded
+  $entity_info['node']['view modes']['embedded'] = [
+    'label' => t('Embedded'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['taxonomy_term']['view modes']['embedded'] = [
+    'label' => t('Embedded'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['user']['view modes']['embedded'] = [
+    'label' => t('Embedded'),
+    'custom settings' => FALSE,
+  ];
+
+  // Teaser
+  $entity_info['taxonomy_term']['view modes']['teaser'] = [
+    'label' => t('Teaser'),
+    'custom settings' => FALSE,
+  ];
+  $entity_info['user']['view modes']['teaser'] = [
+    'label' => t('Teaser'),
+    'custom settings' => FALSE,
+  ];
+}
