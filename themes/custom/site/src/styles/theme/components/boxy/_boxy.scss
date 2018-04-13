@@ -65,6 +65,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
 .boxy {
 
   .menu,
+  .related-links,
   .node__image,
   .entity-teaser,
   .entity-list,
@@ -74,6 +75,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
   }
 
   .menu a,
+  .related-links a,
   .entity-list__inner {
     padding-left: $xs-boxy-spacing-left-right;
     padding-right: $xs-boxy-spacing-left-right;
@@ -103,6 +105,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
   .boxy {
 
     .menu,
+    .related-links,
     .node__image,
     .entity-teaser,
     .entity-list,
@@ -112,6 +115,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
     }
 
     .menu a,
+    .related-links a,
     .entity-list__inner {
       padding-left: $sm-boxy-spacing-left-right;
       padding-right: $sm-boxy-spacing-left-right;
@@ -143,6 +147,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
   .boxy {
 
     .menu,
+    .related-links,
     .node__image,
     .entity-teaser,
     .entity-list,
@@ -152,6 +157,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
     }
 
     .menu a,
+    .related-links a,
     .entity-list__inner {
       padding-left: $md-boxy-spacing-left-right;
       padding-right: $md-boxy-spacing-left-right;
@@ -180,6 +186,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
   .boxy {
 
     .menu,
+    .related-links,
     .node__image,
     .entity-teaser,
     .entity-list,
@@ -189,6 +196,7 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
     }
 
     .menu a,
+    .related-links a,
     .entity-list__inner {
       padding-left: $lg-boxy-spacing-left-right;
       padding-right: $lg-boxy-spacing-left-right;

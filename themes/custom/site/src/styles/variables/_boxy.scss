@@ -5,7 +5,7 @@ $boxy-heading-spacing-top-bottom: 40px;
 $boxy-heading-border: 0 !default;
 $boxy-heading-background-color: $body-bg-secondary;
 
-$boxy-heading-title-color: $headings-color !default;
+$boxy-heading-title-color: $brand-primary;
 
 // Body
 $boxy-body-spacing-top-bottom: floor( ( $grid-gutter-width / 2 ) );

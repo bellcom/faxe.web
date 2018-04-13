@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Node fields
+// | Related links
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .pane-os2sub-node-fields-panel-pane-1
+// | - .pane-os31web-related-links-node-related-links-block
 // |
 
 // --------------------------------------------------
@@ -14,25 +14,20 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin pane-os2sub-node-fields-panel-pane-1-mixin() {}
+@mixin pane-related-links-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.pane-os2sub-node-fields-panel-pane-1 {
+.os2-links-list {
+  margin-bottom: 0;
 
-  a {
-    display: block;
+  &.boxy {
 
-    padding: 10px 0;
-
-    font-size: $font-size-large;
-
-    color: $text-color;
-
-    &:hover {
-      color: $link-hover-color;
+    .boxy__body {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

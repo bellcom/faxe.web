@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | News - list default
+// | Related links
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .pane-os2web-news-lists-panel-pane-2
+// | - .related-links
 // |
 
 // --------------------------------------------------
@@ -14,19 +14,73 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin pane-os2web-news-lists-panel-pane-2-mixin() {}
+@mixin related-links-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.pane-os2web-news-lists-panel-pane-2 {
+.layout__content {
 
-  &.boxy {
+  .related-links {
+    padding: 0;
+    margin-bottom: 0;
 
-    .boxy__body {
-      padding-top: 0;
-      padding-bottom: 0;
+    list-style: none;
+
+    > li {
+
+      > a {
+        position: relative;
+
+        display: block;
+
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+        font-size: $font-size-large;
+
+        color: $text-color;
+
+        &:after {
+          @extend .fa;
+          position: absolute;
+
+          display: flex;
+
+          justify-content: center;
+          align-items: center;
+
+          top: 50%;
+          right: 0;
+
+          content: $fa-var-angle-right;
+
+          margin-top: -20px; // Half the height
+
+          height: 40px;
+          width: 40px;
+
+          color: #fff;
+          background-color: $brand-primary;
+        }
+
+        &:hover {
+          color: $brand-primary;
+          background-color: $body-bg-tertiary;
+        }
+      }
+
+      &.active {
+
+        > a {
+
+          &, &:hover {
+            color: $brand-primary;
+            background-color: #e5e0de;
+          }
+        }
+      }
     }
   }
 }
