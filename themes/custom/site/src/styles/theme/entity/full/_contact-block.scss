@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Related links
+// | Contact block
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .pane-os31web-related-links-node-related-links-block
+// | - .node-os2web-contact-contact
 // |
 
 // --------------------------------------------------
@@ -14,20 +14,16 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin pane-related-links-mixin() {}
+@mixin node-os2web-contact-contact-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.os2-links-list {
+.node-os2web-contact-contact {
 
-  &.boxy {
-
-    .boxy__body {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  header {
+    display: none;
   }
 }
 
