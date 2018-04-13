@@ -1,0 +1,80 @@
+// |--------------------------------------------------------------------------
+// | Borger.dk article
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .node-borger-dk-article
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin node-borger-dk-article-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.node-borger-dk-article {
+
+  .node__body {
+
+    + .node__paragraphs {
+      margin-top: $grid-gutter-width;
+    }
+  }
+
+  .node__paragraphs {
+
+    .accordion {
+      margin: 5px 0;
+    }
+
+    + .node__webform {
+      margin-top: $grid-gutter-width;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
