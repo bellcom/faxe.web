@@ -22,6 +22,11 @@
 
 .field-name-field-os2web-base-field-image {
 
+  .field-slideshow {
+    height: 100% !important; // Overrides the inline styling
+    width: 100% !important; // Overrides the inline styling
+  }
+
   img {
     width: 100% !important;
     height: auto;

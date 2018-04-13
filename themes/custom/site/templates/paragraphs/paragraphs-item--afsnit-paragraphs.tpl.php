@@ -1,9 +1,9 @@
 <div class="accordion <?php print $classes; ?>"<?php print $attributes; ?>>
 
-  <?php if ( isset( $content['field_paragraph_header'] ) ): ?>
+  <?php if ( isset( $content['field_afsnit_overskrift'] ) ): ?>
       <!-- Begin - heading -->
       <h2 class="accordion__heading heading-h6">
-        <?php print render( $content['field_paragraph_header'] ); ?>
+        <?php print render( $content['field_afsnit_overskrift'] ); ?>
       </h2>
       <!-- End - heading -->
   <?php endif; ?>
