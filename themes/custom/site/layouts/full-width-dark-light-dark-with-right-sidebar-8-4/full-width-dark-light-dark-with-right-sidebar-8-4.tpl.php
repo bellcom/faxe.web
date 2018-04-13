@@ -26,13 +26,13 @@
             <?php if ($content['sidebar']): ?>
 
               <!-- Begin - content -->
-              <div class="col-sm-8">
+              <div class="col-sm-7 col-lg-8">
                 <?php echo $content['content']; ?>
               </div>
               <!-- End - content -->
 
               <!-- Begin - sidebar -->
-              <div class="col-sm-4 hidden-print">
+              <div class="col-sm-5 col-lg-4 hidden-print">
                 <?php echo $content['sidebar']; ?>
               </div>
               <!-- End - sidebar -->
