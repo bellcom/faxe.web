@@ -6,7 +6,7 @@
 
     <!-- Begin - navigation -->
     <nav class="slinky-menu" role="navigation">
-      <?php print render($menu_slinky__primary); ?>
+      <?php print render($menu_slinky__main_menu); ?>
     </nav>
     <!-- End - navigation -->
 

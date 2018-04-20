@@ -38,6 +38,7 @@ function site_preprocess_page(&$variables) {
 
   // Navigation
   $variables['flexy_navigation__primary'] = _bellcom_generate_menu($primary_navigation_name, 'flexy_navigation', FALSE, 1);
+  $variables['menu_slinky__main_menu'] = _bellcom_generate_menu('main-menu', 'slinky', TRUE);
 
   // Tabs
   $variables['tabs_primary'] = $variables['tabs'];
