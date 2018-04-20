@@ -41,6 +41,110 @@ $lg-hero-min-height: 390px;
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+
+    padding-left: $boxy-spacing-left-right;
+    padding-right: 150px;
+
+    .owl-theme {
+
+      .owl-controls {
+        text-align: left;
+
+        .owl-buttons {
+          display: none;
+
+          position: absolute;
+
+          left: 0;
+          bottom: 0;
+
+          div {
+            opacity: 1;
+
+            border-radius: 0;
+
+            background-color: $brand-primary;
+
+            &:after {
+              @extend .icon;
+
+              color: #fff;
+            }
+
+            &:hover {
+              background-color: #fff;
+
+              &:after {
+                color: $text-color;
+              }
+            }
+          }
+
+          .owl-prev {
+
+            &:after {
+              content: $fa-var-angle-left;
+            }
+          }
+
+          .owl-next {
+
+            &:after {
+              content: $fa-var-angle-right;
+            }
+          }
+        }
+
+        .owl-page {
+
+          span {
+            background-color: #fff;
+          }
+
+          &.active {
+
+            span {
+              background-color: #fff;
+            }
+          }
+        }
+
+        &.clickable {
+
+          .owl-page {
+
+            &:hover {
+
+              span {
+                background-color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .node__slides__heading {
+    font-size: $font-size-h3;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight-bold;
+
+    &, a {
+
+      &, &:hover {
+        color: #fff;
+      }
+    }
+
+    + .node__slides__text {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .node__slides__text {
+    color: #fff;
   }
 
   .node__links {
@@ -57,9 +161,10 @@ $lg-hero-min-height: 390px;
 
         display: block;
 
-        padding: 10px 50px 10px 20px;
+        padding: 15px 50px 15px 20px;
 
-        font-size: $font-size-h3;
+        font-weight: $headings-font-weight-bold;
+        font-size: $font-size-h4;
 
         background-color: $body-bg-secondary;
 
@@ -79,7 +184,7 @@ $lg-hero-min-height: 390px;
 
           position: absolute;
 
-          top: 14px;
+          top: 18px;
           right: 20px;
 
           content: $fa-var-angle-right;

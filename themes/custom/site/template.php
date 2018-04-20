@@ -110,3 +110,60 @@ function site_preprocess_taxonomy_term(&$variables) {
     $function_view_mode($variables);
   }
 }
+
+/**
+ * Implements template_preprocess_entity().
+ */
+function site_preprocess_entity(&$variables) {
+  $entity_type = $variables['entity_type'];
+
+  // Field collection item
+  if ($entity_type === 'field_collection_item') {
+    $field_collection_item = $variables['field_collection_item'];
+
+    if ($fields = field_get_items('field_collection_item', $field_collection_item, 'field_bc_hero_slide_link')) {
+
+      if (isset($fields[0]['url'])) {
+        $variables['content']['raw_url'] = $fields[0]['url'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_entity().
+ * List of news teasers.
+ */
+function site_preprocess_entity__fic_list_of_news_teasers(&$variables) {
+  $paragraph = $variables['paragraphs_item'];
+  $display = 'news';
+  $ids = [];
+  $variables['embedded_view'] = false;
+
+  if ($fields = field_get_items('paragraphs_item', $paragraph, 'field_promoted')) {
+
+    if ((boolean) $fields[0]['value']) {
+      $display = 'news_promoted';
+    }
+  }
+
+  if ($fields = field_get_items('paragraphs_item', $paragraph, 'field_section_id')) {
+
+    foreach($fields as $field) {
+      $ids[] = $field['tid'];
+    }
+  }
+  $contextual_filter = implode('+', $ids);
+
+  if (! $contextual_filter) {
+
+    if (count(views_get_view_result('fic_embed_nodes', $display))) {
+      $variables['embedded_view'] = views_embed_view('fic_embed_nodes', $display);
+    }
+  } else {
+
+    if (count(views_get_view_result('fic_embed_nodes', $display, $contextual_filter))) {
+      $variables['embedded_view'] = views_embed_view('fic_embed_nodes', $display, $contextual_filter);
+    }
+  }
+}
