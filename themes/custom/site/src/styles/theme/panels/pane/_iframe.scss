@@ -1,0 +1,74 @@
+// |--------------------------------------------------------------------------
+// | Iframe
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .pane-node-field-os2web-base-iframe-url
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+@mixin pane-node-field-os2web-base-iframe-url-mixin() {}
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.pane-node-field-os2web-base-iframe-url {
+  background-color: $body-bg-secondary;
+
+  &.partial {
+
+    .iframe_title {
+      padding: $boxy-heading-spacing-top-bottom $boxy-spacing-left-right;
+      margin: 0;
+
+      font-weight: $headings-font-weight-bold;
+      font-size: $font-size-h3;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
