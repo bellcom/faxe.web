@@ -27,9 +27,12 @@ $lg-hero-min-height: 390px;
 // --------------------------------------------------
 
 .node-bc-hero {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  .node__inner {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
   .row--equal-height-columns {
     min-height: $xs-hero-min-height;
@@ -51,17 +54,17 @@ $lg-hero-min-height: 390px;
         text-align: left;
 
         .owl-buttons {
-          display: none;
-
-          position: absolute;
-
-          left: 0;
-          bottom: 0;
+          padding-top: 20px;
 
           div {
             opacity: 1;
 
+            margin: 1px;
+            padding: 6px 18px;
+
             border-radius: 0;
+
+            font-size: 24px;
 
             background-color: $brand-primary;
 
@@ -200,6 +203,13 @@ $lg-hero-min-height: 390px;
   }
 }
 
+.sectioned {
+
+  .node-bc-hero {
+    margin-top: 0 - $xs-sectioned-inner-spacing;
+  }
+}
+
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
@@ -220,6 +230,13 @@ $lg-hero-min-height: 390px;
 // Tablet - only
 @media #{$breakpoint-tablet-only} {
 
+  .sectioned {
+
+    .node-bc-hero {
+      margin-top: 0 - $sm-sectioned-inner-spacing;
+    }
+  }
+
   .node-bc-hero {
 
     .row--equal-height-columns {
@@ -234,6 +251,13 @@ $lg-hero-min-height: 390px;
 // Desktop - only
 @media #{$breakpoint-desktop-only} {
 
+  .sectioned {
+
+    .node-bc-hero {
+      margin-top: 0 - $md-sectioned-inner-spacing;
+    }
+  }
+
   .node-bc-hero {
 
     .row--equal-height-columns {
@@ -244,6 +268,13 @@ $lg-hero-min-height: 390px;
 
 // Large desktop - and up
 @media #{$breakpoint-large-desktop-and-up} {
+
+  .sectioned {
+
+    .node-bc-hero {
+      margin-top: 0 - $lg-sectioned-inner-spacing;
+    }
+  }
 
   .node-bc-hero {
 

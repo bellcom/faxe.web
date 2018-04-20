@@ -30,6 +30,20 @@
   }
 }
 
+.node__preheading {
+  display: inline-block;
+
+  padding: $boxy-heading-spacing-top-bottom $boxy-spacing-left-right;
+
+  background-color: $body-bg-secondary;
+}
+.node__preheading__title {
+  padding: 0;
+  margin: 0;
+
+  font-weight: $headings-font-weight-bold;
+}
+
 .node__heading {
   margin-bottom: floor( ($grid-gutter-width / 2) );
 }
