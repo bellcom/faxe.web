@@ -45,8 +45,7 @@ $lg-hero-min-height: 390px;
     flex-grow: 1;
     justify-content: center;
 
-    padding-left: $boxy-spacing-left-right;
-    padding-right: 150px;
+    padding: 20px $boxy-spacing-left-right;
 
     .owl-theme {
 
@@ -222,10 +221,39 @@ $lg-hero-min-height: 390px;
 @media #{$breakpoint-mobile-and-up} {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {}
+@media #{$breakpoint-mobile-only} {
+
+  .node-bc-hero {
+
+    .node__inner {
+      background: none !important;
+    }
+
+    .node__slides {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      + .node__links {
+        margin-top: $grid-gutter-width;
+      }
+    }
+  }
+}
 
 // Tablet - and up
-@media #{$breakpoint-tablet-and-up} {}
+@media #{$breakpoint-tablet-and-up} {
+
+  .node-bc-hero {
+
+    .node__slides {
+      padding-left: $boxy-spacing-left-right;
+      padding-right: 150px;
+
+      background: none !important;
+    }
+  }
+}
 
 // Tablet - only
 @media #{$breakpoint-tablet-only} {
