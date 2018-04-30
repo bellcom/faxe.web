@@ -25,6 +25,8 @@ if (isset($node->field_bc_hero_image['und']['0']['uri']) && $uri = $node->field_
         <?php if (isset($content['field_bc_hero_slides'])): ?>
           <!-- Begin - slides -->
           <div class="node__slides" style="background-image: url('<?php print $image_url; ?>');">
+            <div class="node__slides__overlay"></div>
+
             <?php print render($content['field_bc_hero_slides']); ?>
           </div>
           <!-- End - slides -->

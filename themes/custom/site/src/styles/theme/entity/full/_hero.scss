@@ -39,11 +39,14 @@ $lg-hero-min-height: 390px;
   }
 
   .node__slides {
+    position: relative;
+
     display: flex;
 
     flex-direction: column;
-    flex-grow: 1;
     justify-content: center;
+
+    flex-grow: 1;
 
     padding: 20px $boxy-spacing-left-right;
 
@@ -125,6 +128,22 @@ $lg-hero-min-height: 390px;
         }
       }
     }
+  }
+
+  .node__slides__overlay {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: transparent;
+    background-image: linear-gradient(
+                    to right,
+                    rgba(27, 62, 70, .6) 40%,
+                    transparent 65%
+    );
   }
 
   .node__slides__heading {
