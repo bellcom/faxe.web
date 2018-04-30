@@ -1,9 +1,9 @@
 // |--------------------------------------------------------------------------
-// | Structure
+// | Contentpage
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .entity-teaser--os2web-base-tax-site-structure
+// | - .entity-teaser--os2web-base-contentpage
 // |
 
 // --------------------------------------------------
@@ -14,38 +14,14 @@
 // Mixins
 // --------------------------------------------------
 
-@mixin entity-teaser--os2web-base-tax-site-structure-mixin() {}
+@mixin entity-teaser--os2web-base-contentpage-mixin() {}
 
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
 
-.entity-teaser--os2web-base-tax-site-structure {
+.entity-teaser--os2web-base-contentpage {
   min-height: 250px;
-
-  .entity-teaser__logo {
-    padding-top: 20px;
-
-    img {
-      margin: auto;
-    }
-
-    + .entity-teaser__heading {
-      margin-top: 10px;
-    }
-  }
-
-  .entity-teaser__heading,
-  .entity-teaser__body {
-    text-align: center;
-  }
-
-  &:hover {
-
-    .entity-teaser__heading__title {
-      text-decoration: none;
-    }
-  }
 }
 
 // --------------------------------------------------

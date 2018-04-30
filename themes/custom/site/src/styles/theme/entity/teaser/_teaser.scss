@@ -27,6 +27,10 @@ $teaser-spacing-top-bottom: 10px;
   padding: $teaser-spacing-top-bottom $xs-boxy-spacing-left-right;
 
   background-color: $body-bg-secondary;
+
+  .row--equal-height-columns & {
+    flex-grow: 1;
+  }
 }
 
 .entity-teaser__image {
