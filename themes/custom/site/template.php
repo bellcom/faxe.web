@@ -45,6 +45,14 @@ function site_preprocess_page(&$variables) {
   $variables['tabs_secondary'] = $variables['tabs'];
   unset($variables['tabs_primary']['#secondary']);
   unset($variables['tabs_secondary']['#primary']);
+
+  // Header background image
+  if ($file = file_load((int) theme_get_setting('header_background_image'))) {
+
+    if ($uri = $file->uri) {
+      $variables['header_background_image'] = file_create_url(image_style_url('header_background_image', $uri));
+    }
+  }
 }
 
 /**
