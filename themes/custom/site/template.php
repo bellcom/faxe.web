@@ -177,7 +177,7 @@ function site_preprocess_entity__fic_list_of_news_teasers(&$variables) {
 }
 
 /*
- * Force download.
+ * Force download
  */
 function site_file_link($variables) {
   $file = $variables['file'];
