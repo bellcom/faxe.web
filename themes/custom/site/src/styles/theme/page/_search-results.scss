@@ -28,6 +28,14 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 
 .search-results {}
 
+.search-performance {
+  display: none;
+}
+
+.search-api-page-results {
+  margin-top: $grid-gutter-width;
+}
+
 .search-results__form {
 
   .form-inline {
