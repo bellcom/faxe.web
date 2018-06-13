@@ -162,15 +162,37 @@
     <a id="main-content"></a>
 
     <?php if (!panels_get_current_page_display()): ?>
-      <div class="container">
+      <section class="sectioned">
+        <div class="sectioned__inner">
+          <div class="container">
 
-        <?php if (!empty($page['sidebar__left'])): ?>
-          <div class="row">
-            <aside class="hidden-xs col-sm-4" role="complementary">
-              <?php print render($page['sidebar__left']); ?>
-            </aside>
+            <?php if (!empty($page['sidebar__left'])): ?>
+              <div class="row">
+                <aside class="hidden-xs col-sm-4" role="complementary">
+                  <?php print render($page['sidebar__left']); ?>
+                </aside>
 
-            <section class="col-sm-8">
+                <section class="col-sm-8">
+
+                  <div class="boxy">
+
+                    <?php if (!empty($title)): ?>
+                      <div class="boxy__heading">
+                        <h1 class="boxy__heading__title">
+                          <?php print $title; ?>
+                        </h1>
+                      </div>
+                    <?php endif; ?>
+
+                    <div class="boxy__body">
+                      <?php print render($page['content']); ?>
+                    </div>
+                  </div>
+
+                </section>
+              </div>
+
+            <?php else: ?>
 
               <div class="boxy">
 
@@ -187,29 +209,11 @@
                 </div>
               </div>
 
-            </section>
-          </div>
-
-        <?php else: ?>
-
-          <div class="boxy">
-
-            <?php if (!empty($title)): ?>
-              <div class="boxy__heading">
-                <h1 class="boxy__heading__title">
-                  <?php print $title; ?>
-                </h1>
-              </div>
             <?php endif; ?>
 
-            <div class="boxy__body">
-              <?php print render($page['content']); ?>
-            </div>
           </div>
-
-        <?php endif; ?>
-
-      </div>
+        </div>
+      </section>
     <?php else: ?>
 
       <?php if (!empty($page['sidebar__left'])): ?>
