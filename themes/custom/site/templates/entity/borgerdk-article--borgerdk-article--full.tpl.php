@@ -14,6 +14,9 @@
 
     $content['microarticles']['#label_display'] = 'hidden';
     print render($content['microarticles']);
+    
+    $content['selfservices']['#label_display'] = 'hidden';
+    print render($content['selfservices']);
 
     ?>
 
