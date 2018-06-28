@@ -2,9 +2,9 @@
 
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
-<!--  <div class="partial__heading">-->
-<!--    <h2 class="partial__heading__title"--><?php //print $title_attributes; ?><!-->--><?php //print $title; ?><!--</h2>-->
-<!--  </div>-->
+  <div class="partial__heading">
+    <h2 class="partial__heading__title"<?php print $title_attributes; ?>><?php print $title; ?></h2>
+  </div>
   <?php endif;?>
   <?php print render($title_suffix); ?>
 

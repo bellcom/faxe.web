@@ -20,6 +20,21 @@
 // Styling
 // --------------------------------------------------
 
+.partial__heading {
+  padding: $boxy-heading-spacing-top-bottom 0;
+
+  + .partial__body {
+    padding-top: $boxy-body-spacing-top-bottom;
+  }
+}
+
+.partial__heading__title {
+  margin: 0;
+  padding: 0;
+
+  color: $boxy-heading-title-color;
+}
+
 .partial--facets {
 
   ul {
