@@ -20,7 +20,7 @@ function bellcom_borgerdk_migrate_strongarm() {
         'custom_settings' => TRUE,
       ),
       'spotbox' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -41,6 +41,24 @@ function bellcom_borgerdk_migrate_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list' => array(
+        'custom_settings' => TRUE,
+      ),
+      'includeable' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_simple' => array(
+        'custom_settings' => FALSE,
+      ),
+      'list_advanced' => array(
+        'custom_settings' => FALSE,
+      ),
+      'embedded' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -110,6 +128,13 @@ function bellcom_borgerdk_migrate_strongarm() {
   $strongarm->name = 'node_submitted_borger_dk_article';
   $strongarm->value = 1;
   $export['node_submitted_borger_dk_article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_borger_dk_article_pattern';
+  $strongarm->value = '[node:menu-link:parents:join-path]/[node:title]';
+  $export['pathauto_node_borger_dk_article_pattern'] = $strongarm;
 
   return $export;
 }

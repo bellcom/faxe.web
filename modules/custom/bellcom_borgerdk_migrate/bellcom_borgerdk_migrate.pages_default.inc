@@ -17,7 +17,7 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -5;
+  $handler->weight = -3;
   $handler->conf = array(
     'title' => 'Borger.dk Article',
     'no_blocks' => 0,
@@ -73,7 +73,7 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $pane->panel = 'content';
   $pane->type = 'entity_field';
   $pane->subtype = 'node:field_os2web_borger_dk_image';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
@@ -128,33 +128,6 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $display->content['new-22348682-51c5-4bd7-99d0-7c5254766755'] = $pane;
   $display->panels['content'][0] = 'new-22348682-51c5-4bd7-99d0-7c5254766755';
   $pane = new stdClass();
-  $pane->pid = 'new-483e6901-e978-4121-b2eb-1021e302eabd';
-  $pane->panel = 'content';
-  $pane->type = 'block';
-  $pane->subtype = 'os2web_related_links-selfservice_links_block';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 1,
-    'override_title_text' => 'Selvbetjening',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'os2-box-quaternary',
-    'template_suggestion' => '',
-  );
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '483e6901-e978-4121-b2eb-1021e302eabd';
-  $display->content['new-483e6901-e978-4121-b2eb-1021e302eabd'] = $pane;
-  $display->panels['content'][1] = 'new-483e6901-e978-4121-b2eb-1021e302eabd';
-  $pane = new stdClass();
   $pane->pid = 'new-4773af2b-a732-4ac5-ad64-c048b8e4e458';
   $pane->panel = 'content';
   $pane->type = 'node_content';
@@ -163,13 +136,13 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'links' => 0,
-    'no_extras' => 0,
+    'no_extras' => 1,
     'override_title' => 1,
     'override_title_text' => '',
     'identifier' => '',
     'link' => 0,
     'leave_node_title' => 1,
-    'build_mode' => 'includeable',
+    'build_mode' => 'full',
     'context' => 'argument_entity_id:node_1',
     'override_title_heading' => 'h2',
   );
@@ -183,11 +156,11 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
     'template_suggestion' => '',
   );
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '4773af2b-a732-4ac5-ad64-c048b8e4e458';
   $display->content['new-4773af2b-a732-4ac5-ad64-c048b8e4e458'] = $pane;
-  $display->panels['content'][2] = 'new-4773af2b-a732-4ac5-ad64-c048b8e4e458';
+  $display->panels['content'][1] = 'new-4773af2b-a732-4ac5-ad64-c048b8e4e458';
   $pane = new stdClass();
   $pane->pid = 'new-8a8a532c-b46d-4b02-b866-3e7f3656fbc4';
   $pane->panel = 'light_section_1';
@@ -204,64 +177,17 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+    'template_suggestion' => 'plain',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = '8a8a532c-b46d-4b02-b866-3e7f3656fbc4';
   $display->content['new-8a8a532c-b46d-4b02-b866-3e7f3656fbc4'] = $pane;
   $display->panels['light_section_1'][0] = 'new-8a8a532c-b46d-4b02-b866-3e7f3656fbc4';
-  $pane = new stdClass();
-  $pane->pid = 'new-54b1959e-2df8-4a68-a192-8ad73f00548c';
-  $pane->panel = 'light_section_1';
-  $pane->type = 'views';
-  $pane->subtype = 'os2web_editor_information';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'role',
-        'settings' => array(
-          'rids' => array(
-            0 => 2,
-          ),
-        ),
-        'context' => 'logged-in-user',
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'override_pager_settings' => 0,
-    'use_pager' => 0,
-    'nodes_per_page' => '1',
-    'pager_id' => '0',
-    'offset' => '0',
-    'more_link' => 0,
-    'feed_icons' => 0,
-    'panel_args' => 0,
-    'link_to_view' => 0,
-    'args' => '',
-    'url' => '',
-    'display' => 'default',
-    'context' => array(
-      0 => '',
-    ),
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '54b1959e-2df8-4a68-a192-8ad73f00548c';
-  $display->content['new-54b1959e-2df8-4a68-a192-8ad73f00548c'] = $pane;
-  $display->panels['light_section_1'][1] = 'new-54b1959e-2df8-4a68-a192-8ad73f00548c';
   $pane = new stdClass();
   $pane->pid = 'new-9d75c774-b0ca-418f-98f8-7dcf5ac40f50';
   $pane->panel = 'sidebar';
@@ -299,6 +225,44 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   $display->content['new-9d75c774-b0ca-418f-98f8-7dcf5ac40f50'] = $pane;
   $display->panels['sidebar'][0] = 'new-9d75c774-b0ca-418f-98f8-7dcf5ac40f50';
   $pane = new stdClass();
+  $pane->pid = 'new-3393b655-43c8-4d5d-97f3-9a5e92aba00e';
+  $pane->panel = 'sidebar';
+  $pane->type = 'views';
+  $pane->subtype = 'published_on_date';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 0,
+    'nodes_per_page' => '1',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'block',
+    'context' => array(
+      0 => 'argument_entity_id:node_1.nid',
+    ),
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '3393b655-43c8-4d5d-97f3-9a5e92aba00e';
+  $display->content['new-3393b655-43c8-4d5d-97f3-9a5e92aba00e'] = $pane;
+  $display->panels['sidebar'][1] = 'new-3393b655-43c8-4d5d-97f3-9a5e92aba00e';
+  $pane = new stdClass();
   $pane->pid = 'new-81282eec-9ae4-46f7-9ed2-4ca9162090a0';
   $pane->panel = 'sidebar';
   $pane->type = 'block';
@@ -320,11 +284,38 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
     'template_suggestion' => 'block',
   );
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '81282eec-9ae4-46f7-9ed2-4ca9162090a0';
   $display->content['new-81282eec-9ae4-46f7-9ed2-4ca9162090a0'] = $pane;
-  $display->panels['sidebar'][1] = 'new-81282eec-9ae4-46f7-9ed2-4ca9162090a0';
+  $display->panels['sidebar'][2] = 'new-81282eec-9ae4-46f7-9ed2-4ca9162090a0';
+  $pane = new stdClass();
+  $pane->pid = 'new-483e6901-e978-4121-b2eb-1021e302eabd';
+  $pane->panel = 'sidebar';
+  $pane->type = 'block';
+  $pane->subtype = 'os2web_related_links-selfservice_links_block';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => 'Selvbetjening',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'os2-box-quaternary',
+    'template_suggestion' => '',
+  );
+  $pane->extras = array();
+  $pane->position = 3;
+  $pane->locks = array();
+  $pane->uuid = '483e6901-e978-4121-b2eb-1021e302eabd';
+  $display->content['new-483e6901-e978-4121-b2eb-1021e302eabd'] = $pane;
+  $display->panels['sidebar'][3] = 'new-483e6901-e978-4121-b2eb-1021e302eabd';
   $pane = new stdClass();
   $pane->pid = 'new-dfcb7571-f0c4-4e15-a16f-c50abb67082a';
   $pane->panel = 'sidebar';
@@ -343,11 +334,11 @@ function bellcom_borgerdk_migrate_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 4;
   $pane->locks = array();
   $pane->uuid = 'dfcb7571-f0c4-4e15-a16f-c50abb67082a';
   $display->content['new-dfcb7571-f0c4-4e15-a16f-c50abb67082a'] = $pane;
-  $display->panels['sidebar'][2] = 'new-dfcb7571-f0c4-4e15-a16f-c50abb67082a';
+  $display->panels['sidebar'][4] = 'new-dfcb7571-f0c4-4e15-a16f-c50abb67082a';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
