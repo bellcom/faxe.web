@@ -33,7 +33,9 @@ jQuery(function($) {
 
     $('.accordion__heading').on('click', function(event) {
         let $element = $(this),
-            $parent = $element.parents('.accordion');
+            $parent = $element.parent('.accordion');
+
+        if ($parent.hasClass('accordion--not-toggleable')) return;
 
         $parent.toggleClass('open');
     });

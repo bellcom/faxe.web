@@ -38,6 +38,13 @@
     + .node__webform {
       margin-top: $grid-gutter-width;
     }
+
+    .field-name-content {
+
+      + .field-name-selfservices {
+        margin-top: $grid-gutter-width;
+      }
+    }
   }
 }
 

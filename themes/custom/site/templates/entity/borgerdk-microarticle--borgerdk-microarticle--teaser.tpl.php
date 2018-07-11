@@ -1,6 +1,7 @@
 <?php
 $content['title']['#label_display'] = 'hidden';
 $content['content']['#label_display'] = 'hidden';
+$content['selfservices']['#label_display'] = 'hidden';
 ?>
 
 <div class="accordion <?php print $classes; ?>"<?php print $attributes; ?>>
@@ -17,6 +18,7 @@ $content['content']['#label_display'] = 'hidden';
   <div class="accordion__body"<?php print $content_attributes; ?>>
     <?php
     print render($content['content']);
+    print render($content['selfservices']);
     ?>
   </div>
   <!-- End - body -->
