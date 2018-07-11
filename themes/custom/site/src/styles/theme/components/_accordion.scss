@@ -71,6 +71,7 @@
 
   .accordion--not-toggleable > &,
   .accordion--not-toggleable.open > & {
+    cursor: default;
 
     &:after {
       display: none;
