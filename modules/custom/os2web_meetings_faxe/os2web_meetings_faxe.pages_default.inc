@@ -13,11 +13,11 @@ function os2web_meetings_faxe_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view__meetings';
+  $handler->name = 'node_view__panel_context_453ccf05-7986-4042-9853-1b26c21197e3';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -1;
   $handler->conf = array(
     'title' => 'Meetings',
     'no_blocks' => 0,
@@ -64,27 +64,52 @@ function os2web_meetings_faxe_default_page_manager_handlers() {
   $display->title = '%node:title (%node:field-os2web-meetings-type)';
   $display->uuid = '6a0e38b9-f949-4558-9978-65e403845cac';
   $display->storage_type = 'page_manager';
-  $display->storage_id = 'node_view__meetings';
+  $display->storage_id = 'node_view__panel_context_453ccf05-7986-4042-9853-1b26c21197e3';
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-101448d0-26f3-4b0a-8cb3-9c3091116d0b';
+  $pane->pid = 'new-afcf8a4d-966f-4a85-adeb-50399ceb5269';
   $pane->panel = 'content';
-  $pane->type = 'node_content';
-  $pane->subtype = 'node_content';
+  $pane->type = 'node_title';
+  $pane->subtype = 'node_title';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'links' => 0,
-    'no_extras' => 1,
-    'override_title' => 0,
-    'override_title_text' => '',
-    'identifier' => '',
     'link' => 0,
-    'leave_node_title' => 0,
-    'build_mode' => 'full',
+    'markup' => 'h1',
+    'id' => '',
+    'class' => '',
     'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => '',
     'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+    'template_suggestion' => 'plain',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'afcf8a4d-966f-4a85-adeb-50399ceb5269';
+  $display->content['new-afcf8a4d-966f-4a85-adeb-50399ceb5269'] = $pane;
+  $display->panels['content'][0] = 'new-afcf8a4d-966f-4a85-adeb-50399ceb5269';
+  $pane = new stdClass();
+  $pane->pid = 'new-13533b17-8919-407e-b8ee-1717abf70f56';
+  $pane->panel = 'content';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'Meeting-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'context' => array(
+      0 => 'argument_entity_id:node_1',
+    ),
   );
   $pane->cache = array();
   $pane->style = array(
@@ -92,11 +117,49 @@ function os2web_meetings_faxe_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
-  $pane->uuid = '101448d0-26f3-4b0a-8cb3-9c3091116d0b';
-  $display->content['new-101448d0-26f3-4b0a-8cb3-9c3091116d0b'] = $pane;
-  $display->panels['content'][0] = 'new-101448d0-26f3-4b0a-8cb3-9c3091116d0b';
+  $pane->uuid = '13533b17-8919-407e-b8ee-1717abf70f56';
+  $display->content['new-13533b17-8919-407e-b8ee-1717abf70f56'] = $pane;
+  $display->panels['content'][1] = 'new-13533b17-8919-407e-b8ee-1717abf70f56';
+  $pane = new stdClass();
+  $pane->pid = 'new-ff734389-6dba-460e-9c98-40cbb3cc3f66';
+  $pane->panel = 'content';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_os2web_meetings_bullets';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'title',
+    'formatter' => 'entityreference_entity_view',
+    'delta_limit' => '0',
+    'delta_offset' => '0',
+    'delta_reversed' => 0,
+    'formatter_settings' => array(
+      'view_mode' => 'full',
+      'links' => 0,
+      'use_content_language' => 0,
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+    'template_suggestion' => 'plain',
+  );
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = 'ff734389-6dba-460e-9c98-40cbb3cc3f66';
+  $display->content['new-ff734389-6dba-460e-9c98-40cbb3cc3f66'] = $pane;
+  $display->panels['content'][2] = 'new-ff734389-6dba-460e-9c98-40cbb3cc3f66';
   $pane = new stdClass();
   $pane->pid = 'new-e142234b-d02f-42ef-b8e4-c360e7895bf3';
   $pane->panel = 'sidebar';
@@ -148,7 +211,7 @@ function os2web_meetings_faxe_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-  $export['node_view__meetings'] = $handler;
+  $export['node_view__panel_context_453ccf05-7986-4042-9853-1b26c21197e3'] = $handler;
 
   return $export;
 }
