@@ -35,9 +35,16 @@
           </nav>
           <!-- End - navigation -->
 
+          <!-- Begin - link -->
+          <a href="/findes"
+            class="flexy-header__link visible-xs visible-sm">
+            <span class="icon fa fa-search"></span>
+          </a>
+          <!-- End - link -->
+
           <!-- Begin - responsive toggle -->
           <button
-              class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
+            class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
             <span class="icon fa fa-bars"></span>
           </button>
           <!-- End - responsive toggle -->
@@ -103,9 +110,16 @@
           </nav>
           <!-- End - navigation -->
 
+          <!-- Begin - link -->
+          <a href="/findes"
+             class="flexy-header__link visible-xs visible-sm">
+            <span class="icon fa fa-search"></span>
+          </a>
+          <!-- End - link -->
+
           <!-- Begin - responsive toggle -->
           <button
-              class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
+            class="flexy-header__sidebar-toggle sidr-toggle--right visible-xs visible-sm">
             <span class="icon fa fa-bars"></span>
           </button>
           <!-- End - responsive toggle -->
