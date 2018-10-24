@@ -91,6 +91,10 @@
   .accordion--not-toggleable > & {
     display: block;
   }
+
+  .field + .field {
+    margin-top: floor( ( $grid-gutter-width / 2 ) );
+  }
 }
 
 // --------------------------------------------------

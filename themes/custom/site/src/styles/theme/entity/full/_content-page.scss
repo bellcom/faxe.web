@@ -24,6 +24,16 @@
 
   .node__body {
 
+    + .node__embedded-page,
+    + .node__contact-block,
+    + .node__paragraphs,
+    + .node__pdf-files {
+      margin-top: $grid-gutter-width;
+    }
+  }
+
+  .node__embedded-page {
+
     + .node__contact-block,
     + .node__paragraphs,
     + .node__pdf-files {

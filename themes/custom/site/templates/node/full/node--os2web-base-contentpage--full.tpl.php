@@ -33,6 +33,14 @@
     <!-- End - body -->
   <?php endif; ?>
 
+  <?php if (isset($content['field_os2web_base_field_sympage'])): ?>
+    <!-- Begin - embedded page -->
+    <div class="node__embedded-page">
+      <?php print render($content['field_os2web_base_field_sympage']); ?>
+    </div>
+    <!-- End - embedded page -->
+  <?php endif; ?>
+
   <?php if ( isset( $content['field_os2web_base_field_media'] ) ): ?>
     <!-- Begin - PDF files -->
     <div class="node__pdf-files">
