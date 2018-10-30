@@ -43,7 +43,7 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Felt: Indhold: Type */
+  /* Field: Indholdselement: Type */
   $handler->display->display_options['fields']['field_os2web_meetings_type']['id'] = 'field_os2web_meetings_type';
   $handler->display->display_options['fields']['field_os2web_meetings_type']['table'] = 'field_data_field_os2web_meetings_type';
   $handler->display->display_options['fields']['field_os2web_meetings_type']['field'] = 'field_os2web_meetings_type';
@@ -51,7 +51,7 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_meetings_type']['element_type'] = 'strong';
   $handler->display->display_options['fields']['field_os2web_meetings_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_meetings_type']['element_default_classes'] = FALSE;
-  /* Felt: Indhold: Committee */
+  /* Field: Indholdselement: Committee */
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['id'] = 'field_os2web_meetings_committee';
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['table'] = 'field_data_field_os2web_meetings_committee';
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['field'] = 'field_os2web_meetings_committee';
@@ -63,7 +63,7 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['element_wrapper_class'] = 'row';
   $handler->display->display_options['fields']['field_os2web_meetings_committee']['element_default_classes'] = FALSE;
-  /* Felt: Indhold: Date */
+  /* Field: Indholdselement: Date */
   $handler->display->display_options['fields']['field_os2web_meetings_date']['id'] = 'field_os2web_meetings_date';
   $handler->display->display_options['fields']['field_os2web_meetings_date']['table'] = 'field_data_field_os2web_meetings_date';
   $handler->display->display_options['fields']['field_os2web_meetings_date']['field'] = 'field_os2web_meetings_date';
@@ -83,7 +83,7 @@ function os2web_meetings_faxe_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Felt: Indhold: Full doc */
+  /* Field: Indholdselement: Full doc */
   $handler->display->display_options['fields']['field_os2web_meetings_full_doc']['id'] = 'field_os2web_meetings_full_doc';
   $handler->display->display_options['fields']['field_os2web_meetings_full_doc']['table'] = 'field_data_field_os2web_meetings_full_doc';
   $handler->display->display_options['fields']['field_os2web_meetings_full_doc']['field'] = 'field_os2web_meetings_full_doc';
@@ -99,7 +99,7 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_meetings_full_doc']['settings'] = array(
     'text' => '[field_os2web_meetings_type] [field_os2web_meetings_committee] [file:name]',
   );
-  /* Felt: Indhold: Lokation */
+  /* Field: Indholdselement: Lokation */
   $handler->display->display_options['fields']['field_os2web_meetings_location']['id'] = 'field_os2web_meetings_location';
   $handler->display->display_options['fields']['field_os2web_meetings_location']['table'] = 'field_data_field_os2web_meetings_location';
   $handler->display->display_options['fields']['field_os2web_meetings_location']['field'] = 'field_os2web_meetings_location';
@@ -110,12 +110,12 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_meetings_location']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_os2web_meetings_location']['element_wrapper_class'] = 'row';
   $handler->display->display_options['fields']['field_os2web_meetings_location']['element_default_classes'] = FALSE;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -125,14 +125,14 @@ function os2web_meetings_faxe_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -173,6 +173,7 @@ function os2web_meetings_faxe_views_default_views() {
     t('Lokation'),
     t('Alle'),
     t('Content pane'),
+    t('more'),
     t('View panes'),
   );
   $export['Meeting'] = $view;
