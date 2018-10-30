@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OS2Web meetings Faxe feature.
+ */
+
+include_once 'os2web_meetings_faxe.features.inc';
