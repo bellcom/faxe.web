@@ -16,6 +16,13 @@ function os2web_meetings_faxe_features_override_default_overrides() {
   $overrides["views_view.os2web_meetings.display|panel_pane_1|display_options|fields|views_conditional"]["DELETED"] = TRUE;
   $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|defaults|use_ajax"] = FALSE;
   $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|fields|field_os2web_meetings_committee|exclude"]["DELETED"] = TRUE;
+  $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|fields|field_os2web_meetings_type"] = array(
+    'id' => 'field_os2web_meetings_type',
+    'table' => 'field_data_field_os2web_meetings_type',
+    'field' => 'field_os2web_meetings_type',
+    'label' => '',
+    'element_label_colon' => FALSE,
+  );
   $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|fields|views_conditional"]["DELETED"] = TRUE;
   $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|filters|field_os2web_meetings_date_value|default_date"] = '-3 months';
   $overrides["views_view.os2web_meetings.display|panel_pane_3|display_options|filters|field_os2web_meetings_date_value|expose|remember_roles|10"] = 0;
