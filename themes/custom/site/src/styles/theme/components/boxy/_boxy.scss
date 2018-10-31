@@ -80,6 +80,10 @@ $lg-boxy-spacing-left-right: $boxy-spacing-left-right;
     padding-left: $xs-boxy-spacing-left-right;
     padding-right: $xs-boxy-spacing-left-right;
   }
+
+  &.boxy--no-stacked-spacing {
+    margin-bottom: 0;
+  }
 }
 
 // --------------------------------------------------
