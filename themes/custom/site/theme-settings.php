@@ -32,6 +32,8 @@ function site_form_system_theme_settings_alter(&$form, $form_state, $form_id = N
       'file_validate_extensions' => array('gif png jpg jpeg'),
     ),
   );
+
+  $form['#submit'][] = 'site_form_system_theme_settings_submit';
 }
 
 function site_form_system_theme_settings_submit(&$form, $form_state, $form_id = NULL) {
