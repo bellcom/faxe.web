@@ -1,7 +1,7 @@
 <?php
 
 // Custom submit function.
-function _theme_site_submit(&$form, $form_state, $form_id = NULL) {
+function site_form_system_theme_settings_submit(&$form, $form_state, $form_id = NULL) {
   $current_theme = variable_get('theme_default', 'none');
 
   $fid = $form_state['values']['header_background_image'];
@@ -52,6 +52,4 @@ function site_form_system_theme_settings_alter(&$form, $form_state, $form_id = N
       'file_validate_extensions' => array('gif png jpg jpeg'),
     ),
   );
-
-  $form['#submit'][] = '_theme_site_submit';
 }
