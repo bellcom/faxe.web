@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * os2web_sbsys_bilag_files_mapping.install.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function os2web_sbsys_bilag_files_mapping_schema() {
+  $schema['os2web_sbsys_bilag_files_mapping_files'] = array(
+    'description' => 'This table is used for mapping bilag files in the meeting',
+    'fields' => array(
+      'fid' => array(
+        'description' => 'The file entity fid.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'initial_uri' => array(
+        'description' => 'The URI of the file',
+        'type' => 'varchar',
+        'length' => 1024,
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('fid'),
+  );
+  return $schema;
+}
