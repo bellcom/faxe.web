@@ -28,5 +28,21 @@ function os2web_sbsys_bilag_files_mapping_schema() {
     ),
     'primary key' => array('fid'),
   );
+  $schema['os2web_sbsys_bilag_files_mapping_bpa_imgages'] = array(
+    'description' => 'This table is used for mapping image files in bpa',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'file_uri' => array(
+        'description' => 'The URI of the file',
+        'type' => 'varchar',
+        'length' => 1024,
+        'serialize' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
   return $schema;
 }

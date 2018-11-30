@@ -35,6 +35,26 @@ function os2web_sbsys_bilag_files_mapping_create_mapping($initial_uri, $fid) {
   }
 }
 /**
+ * This function adds a image file  entry to the database
+ *
+ * @param $uri
+ *
+ */
+function os2web_sbsys_bilag_files_mapping_create_image_files_mapping($uri) {
+   $result = db_select('os2web_sbsys_bilag_files_mapping_bpa_imgages', 'f')
+      ->fields('f')
+      ->condition('file_uri', $uri)
+      ->execute()
+      ->fetchAllAssoc('id');
+  if (!isset($result)  || empty($result)) {
+    db_insert('os2web_sbsys_bilag_files_mapping_bpa_imgages')
+      ->fields(array(
+        'file_uri' => $uri,
+      ))
+      ->execute();
+  }
+}
+/**
  * Implements hook_file_download().
  */
 function os2web_sbsys_bilag_files_mapping_file_download($uri) {
@@ -47,5 +67,18 @@ function os2web_sbsys_bilag_files_mapping_file_download($uri) {
     $fid = key($result);
     $file = file_load($fid);
     drupal_goto(file_create_url($file->uri));
+  }
+  //image files
+  $result = db_select('os2web_sbsys_bilag_files_mapping_bpa_imgages', 'o')
+      ->fields('o', array('id'))
+      ->condition('file_uri', $uri)
+      ->execute()
+      ->fetchField();
+  if (isset($result) && !empty($result)) {
+    $info = image_get_info($uri);
+    return array(
+      'Content-Type' => $info['mime_type'],
+      ''
+    );
   }
 }

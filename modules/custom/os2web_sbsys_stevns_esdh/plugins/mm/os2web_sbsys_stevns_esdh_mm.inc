@@ -50,7 +50,7 @@ function os2web_sbsys_stevns_esdh_mm_get_import_list() {
       $pub_id = $manifest->xpath("@DagsordenID");
       $pub_id = (string) $pub_id[0];
     }
-    
+
     $uris[] = array('id' => $pub_id, 'uri' => $xml_file->uri);
   }
 
@@ -59,14 +59,14 @@ function os2web_sbsys_stevns_esdh_mm_get_import_list() {
 
 
 /**
- * Strip illegal characters from the XML. 
+ * Strip illegal characters from the XML.
  * Ex &#xC = ASCII new line feed
- * 
+ *
  * @param object $string
  *   string to sanitise
- * 
+ *
  * $return array
- *   The string sanitised 
+ *   The string sanitised
  */
 function utf8_for_xml($string)
 {
@@ -183,7 +183,6 @@ function os2web_sbsys_stevns_esdh_mm_import_meeting($meeting) {
       //    $participants_cancellation[] = (string) $member->Name . " - " . $member->ParticipationStatusAsText . $member->ParticipationNote;
       //  }
       //}
-
       $meeting = array(
         'system_id' => $sys_id,
         'meeting_id' => $meeting_id,
@@ -203,7 +202,6 @@ function os2web_sbsys_stevns_esdh_mm_import_meeting($meeting) {
         'forsidetekst' => $meeting_forside,
         'additional_agenda' => $additional_agenda,
       );
-
       /*stan@bellcom.dk 06.10 - importing multiple agendas*/
       $meeting_agendas = array();
       foreach($manifest->xpath("/Dagsorden/Dagsordenpunkter") as $agenda_instance){
@@ -311,7 +309,7 @@ function _os2web_sbsys_stevns_esdh_mm_import_meeting_agenda_item($meeting, $xml)
     'title' => $xml_item['name'],
   );
   $meeting_folder_uri =  pathinfo($meeting['uri'], PATHINFO_DIRNAME);
- 
+
   if (strcasecmp($item['access'], 'true') != 0) {
     //rewriting the access field to match esdh provider module
     $item['access'] = 'Lukket';
@@ -486,17 +484,22 @@ function _os2web_sbsys_stevns_esdh_mm_order_addenums($drush = FALSE) {
   lock_release(__FUNCTION__);
 }
 
-function _os2web_sbsys_stevns_esdh_mm_improve_body_html($data, $meeting_folder_uri="") {  
+function _os2web_sbsys_stevns_esdh_mm_improve_body_html($data, $meeting_folder_uri="") {
    $doc = new DOMDocument();
    $doc->loadHTML( $data);
   $elements = $doc->getElementsByTagName('img');
   if($elements->length > 0){
-      foreach($elements as $element)  {
-	 $file = $element->getAttribute('src');     
-     $new_uri = file_create_url($meeting_folder_uri) . '/' .  $file;
-     $data = str_replace($file, $new_uri, $data);
-           
+    foreach($elements as $element)  {
+      $file = $element->getAttribute('src');
+      $new_uri = file_create_url($meeting_folder_uri) . '/' .  $file;
+      $file_uri = $meeting_folder_uri . '/' .  $file;
+      if (module_exists('os2web_sbsys_bilag_files_mapping')) {
+        if (file_exists($file_uri)) {
+          os2web_sbsys_bilag_files_mapping_create_image_files_mapping($file_uri);
+        }
       }
-   } 
+      $data = str_replace($file, $new_uri, $data);
+    }
+   }
    return $data;
 }
