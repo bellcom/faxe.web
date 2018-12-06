@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * This module implements SBSYS bilag files mapping in os2web
+ */
+
+/**
+ * This function adds a bilag mapping entry to the database
+ *
+ * @param $initial_uri
+ * @param $fid
+ */
+function os2web_sbsys_bilag_files_mapping_create_mapping($initial_uri, $fid) {
+  $result = db_select('os2web_sbsys_bilag_files_mapping_files', 'f')
+      ->fields('f')
+      ->condition('initial_uri', $initial_uri)
+      ->execute()
+      ->fetchAllAssoc('fid');
+  if (isset($result) && !empty($result)) {
+    db_update('os2web_sbsys_bilag_files_mapping_files')
+        ->fields(array(
+          'fid' => $fid,
+        ))
+        ->condition('initial_uri', $initial_uri, '=')
+        ->execute();
+  }
+  else {
+    db_insert('os2web_sbsys_bilag_files_mapping_files')
+        ->fields(array(
+          'fid' => $fid,
+          'initial_uri' => $initial_uri,
+        ))
+        ->execute();
+  }
+}
+/**
+ * This function adds a image file  entry to the database
+ *
+ * @param $uri
+ *
+ */
+function os2web_sbsys_bilag_files_mapping_create_image_files_mapping($uri) {
+   $result = db_select('os2web_sbsys_bilag_files_mapping_bpa_imgages', 'f')
+      ->fields('f')
+      ->condition('file_uri', $uri)
+      ->execute()
+      ->fetchAllAssoc('id');
+  if (!isset($result)  || empty($result)) {
+    db_insert('os2web_sbsys_bilag_files_mapping_bpa_imgages')
+      ->fields(array(
+        'file_uri' => $uri,
+      ))
+      ->execute();
+  }
+}
+/**
+ * Implements hook_file_download().
+ */
+function os2web_sbsys_bilag_files_mapping_file_download($uri) {
+  $result = db_select('os2web_sbsys_bilag_files_mapping_files', 'f')
+      ->fields('f', array('fid'))
+      ->condition('initial_uri', $uri)
+      ->execute()
+      ->fetchAllAssoc('fid');
+  if (isset($result) && !empty($result)) {
+    $fid = key($result);
+    $file = file_load($fid);
+    drupal_goto(file_create_url($file->uri));
+  }
+  //image files
+  $result = db_select('os2web_sbsys_bilag_files_mapping_bpa_imgages', 'o')
+      ->fields('o', array('id'))
+      ->condition('file_uri', $uri)
+      ->execute()
+      ->fetchField();
+  if (isset($result) && !empty($result)) {
+    $info = image_get_info($uri);
+    return array(
+      'Content-Type' => $info['mime_type'],
+      ''
+    );
+  }
+}

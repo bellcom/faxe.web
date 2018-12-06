@@ -1,0 +1,4 @@
+name = OS2Web SBSYS Bilag Files Mapping
+description = This is a helped module mapping initial bilag files with files which were attached to BPA
+package = OS2Web - ESDH
+core = 7.x
