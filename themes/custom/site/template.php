@@ -211,3 +211,43 @@ function site_file_link($variables) {
 
   return '<span class="file">' . $icon . ' ' . l($link_text, $url, $options) . '</span>';
 }
+
+function site_preprocess_search_api_page_result(&$variables) {
+
+  if ($variables['url']['options']['entity']->type == 'os2web_meetings_bullet') {
+   $nid = $variables['url']['options']['entity']->nid;
+   $query = new EntityFieldQuery();
+   $result = $query->entityCondition('entity_type', 'node')
+     ->propertyCondition('type', 'os2web_meetings_meeting')
+     ->fieldCondition('field_os2web_meetings_bullets', 'target_id', $nid, '=')
+     ->execute();
+   $result = array_shift($result);
+   if (is_array($result)) {
+     $meeting_nid = array_pop(array_keys($result));
+     $variables['url']['path']= 'node/' . $meeting_nid;
+   }
+  }
+
+  if ($variables['url']['options']['entity']->type == 'os2web_meetings_bullet_attach') {
+    $nid = $variables['url']['options']['entity']->nid;
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+       ->propertyCondition('type', 'os2web_meetings_bullet')
+       ->fieldCondition('field_os2web_meetings_attach', 'target_id', $nid, '=')
+       ->execute();
+    $result = array_shift($result);
+    if (is_array($result)) {
+      $bp_nid = array_pop(array_keys($result));
+      $query = new EntityFieldQuery();
+      $result = $query->entityCondition('entity_type', 'node')
+        ->propertyCondition('type', 'os2web_meetings_meeting')
+        ->fieldCondition('field_os2web_meetings_bullets', 'target_id', $bp_nid, '=')
+        ->execute();
+      $result = array_shift($result);
+      if (is_array($result)) {
+        $meeting_nid = array_pop(array_keys($result));
+        $variables['url']['path']= 'node/' . $meeting_nid;
+      }
+    }
+  }
+}
