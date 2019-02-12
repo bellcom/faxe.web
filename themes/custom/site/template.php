@@ -224,7 +224,9 @@ function site_preprocess_search_api_page_result(&$variables) {
    $result = array_shift($result);
    if (is_array($result)) {
      $meeting_nid = array_pop(array_keys($result));
+     $meeting_node = node_load($meeting_nid);
      $variables['url']['path']= 'node/' . $meeting_nid;
+     $variables['title'] = $meeting_node->title . ' ' . $variables['title'];
    }
   }
 
@@ -246,7 +248,9 @@ function site_preprocess_search_api_page_result(&$variables) {
       $result = array_shift($result);
       if (is_array($result)) {
         $meeting_nid = array_pop(array_keys($result));
+        $meeting_node = node_load($meeting_nid);
         $variables['url']['path']= 'node/' . $meeting_nid;
+        $variables['title'] = $meeting_node->title . ' ' . $variables['title'];
       }
     }
   }
