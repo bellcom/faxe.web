@@ -58,6 +58,7 @@ function os2intra_simplesaml_settings_form_submit($form, &$form_state) {
  * Updates the user's LOOP account details.
  */
 function os2intra_simplesaml_user_login(&$edit, $account) {
+  module_load_include('inc', 'simplesamlphp_auth', 'simplesamlphp_auth');
   $attributes = simplesamlphp_auth_get_attributes();
 
 #  if (!empty($attributes)) {
