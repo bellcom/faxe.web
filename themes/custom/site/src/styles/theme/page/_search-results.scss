@@ -43,6 +43,16 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
     .control-label {
       display: none;
     }
+
+    .form-submit {
+      display: inline-block;
+
+      width: auto;
+    }
+  }
+
+  .boxy__body {
+    padding: 0 !important;
   }
 }
 
