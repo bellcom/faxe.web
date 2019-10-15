@@ -2,6 +2,8 @@
 
 
 class FormBuilderWebformForm extends FormBuilderFormBase {
+  const LABEL_PREFIX = 'progressbar_label_first';
+
   /**
    * {@inheritdoc}
    */
@@ -9,9 +11,39 @@ class FormBuilderWebformForm extends FormBuilderFormBase {
     // Webform identifies its forms by Node Id.
     $node = node_load($form_id);
     $form = new static($form_type, $form_id, $sid, $params, array());
-    $form->addComponents($node->webform['components']);
+    $components = static::addFirstPagebreak($node, $node->webform['components']);
+    $form->addComponents($components);
     drupal_alter('form_builder_load', $form, $form_type, $form_id);
     return $form;
+  }
+
+  protected static function addFirstPagebreak($node, $components) {
+    // Only do this if using webform4 or webform_steps_w3.
+    if (array_key_exists('progressbar_label_first', $node->webform)) {
+      $first = reset($components);
+      if ($first['type'] != 'pagebreak') {
+        $form_keys = array();
+        foreach ($components as $c) {
+          if ($c['pid'] === 0) {
+            $form_keys[$c['form_key']] = TRUE;
+          }
+        }
+
+        $form_key = self::LABEL_PREFIX;
+        $i = 0;
+        while (!empty($form_keys[$form_key])) {
+          $form_key = self::LABEL_PREFIX . ++$i;
+        }
+
+        $element = _form_builder_webform_default('pagebreak', array(), array(
+          'name' => $node->webform['progressbar_label_first'],
+          'form_key' => $form_key,
+          'weight' => -100,
+        ));
+        $components = array($element['#webform_component']) + $components;
+      }
+    }
+    return $components;
   }
 
   /**
@@ -65,6 +97,7 @@ class FormBuilderWebformForm extends FormBuilderFormBase {
     $component['weight'] = $element['#weight'];
     // The component can't decide this on it's own.
     $component['pid'] = 0;
+    $component['form_builder_element_id'] = $element_id;
 
     // Allow each component to set any specific settings that can't be mapped.
     if ($saved_component = form_builder_webform_component_invoke($type, 'form_builder_save', $component, $element)) {
@@ -112,6 +145,24 @@ class FormBuilderWebformForm extends FormBuilderFormBase {
     }
     return $components;
   }
+
+  public function updateNode($node) {
+    $components = $this->getComponents($node);
+    $first = reset($components);
+    if ($first['type'] == 'pagebreak') {
+      $node->webform['progressbar_label_first'] = $first['name'];
+
+      // Remove pagebreak if it has the right key.
+      if (substr($first['form_key'], 0, strlen(self::LABEL_PREFIX)) === self::LABEL_PREFIX) {
+        unset($components[$first['cid']]);
+        foreach ($components as &$c) {
+          $c['page_num']--;
+        }
+      }
+    }
+    $node->webform['components'] = $components;
+  }
+
 }
 
 class FormBuilderWebformElement extends FormBuilderElementBase {
@@ -176,6 +227,9 @@ class FormBuilderWebformProperty extends FormBuilderPropertyBase {
     // We use the rendered element here to re-use the form-API functions.
     $e = $element->render();
     $e += array("#{$this->property}" => $this->getValue($e['#webform_component']));
+    // Set weight to just anything. Element positions aren't configured in
+    // this way in form_builder.
+    $e['#webform_component']['weight'] = 0;
     if (isset($this->params['form']) && function_exists($this->params['form'])) {
       $function = $this->params['form'];
       return $function($form_state, $this->formTypeName, $e, $this->property);
@@ -228,4 +282,36 @@ class FormBuilderWebformPropertyOptions extends FormBuilderWebformProperty {
     parent::submit($form, $form_state);
     $form_state['values']['options'] = $options;
   }
+}
+
+/**
+ * Special behaviour for hidden elements.
+ */
+class FormBuilderWebformHiddenElement extends FormBuilderWebformElement {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function configurationForm($form, &$form_state) {
+    $form = parent::configurationForm($form, $form_state);
+
+    // Configure default value as textarea to allow for more data.
+    $form['default_value']['#type'] = 'textarea';
+
+    // Add configuration for $component['extra']['hidden_type'].
+    $display['#form_builder']['property_group'] = 'display';
+    $e = webform_component_invoke('hidden', 'edit', $this->element['#webform_component']);
+    $form['hidden_type'] = $e['display']['hidden_type'] + $display;
+
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function configurationSubmit(&$form, &$form_state) {
+    parent::configurationSubmit($form, $form_state);
+    $this->element['#webform_component']['extra']['hidden_type'] = $form_state['values']['extra']['hidden_type'];
+  }
+
 }
