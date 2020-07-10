@@ -1,0 +1,4 @@
+name = 'Adjustments for EIM contrib module'
+core = 7.x
+package = 'Bellcom'
+dependencies[] = eim
