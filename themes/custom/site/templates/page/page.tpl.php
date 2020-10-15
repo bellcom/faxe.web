@@ -5,7 +5,7 @@
   <aside class="sidr-source-provider">
 
     <!-- Begin - navigation -->
-    <nav class="slinky-menu" role="navigation">
+    <nav class="slinky-menu" aria-label="<?=t('Mobil navigation'); ?>">
       <?php print render($menu_slinky__main_menu); ?>
     </nav>
     <!-- End - navigation -->
@@ -29,8 +29,7 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm"
-               role="navigation">
+          <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
             <?php print render($flexy_list__secondary); ?>
           </nav>
           <!-- End - navigation -->
@@ -76,8 +75,7 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__navigation__wrapper"
-               role="navigation">
+          <nav class="flexy-header__navigation__wrapper" aria-label="<?=t('Statisk sektions navigation'); ?>">
             <?php print render($flexy_navigation__primary); ?>
           </nav>
           <!-- End - navigation -->
@@ -104,8 +102,7 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__navigation__wrapper hidden-xs hidden-sm"
-               role="navigation">
+          <nav class="flexy-header__navigation__wrapper hidden-xs hidden-sm" aria-label="<?=t('Fikseret desktop navigation'); ?>">
             <?php print render($flexy_navigation__primary); ?>
           </nav>
           <!-- End - navigation -->
@@ -131,7 +128,7 @@
   <!-- End - header sticky -->
 
   <!-- Begin - content -->
-  <main class="layout__content" role="main" id="content">
+  <main class="layout__content" id="content">
 
     <?php if (!empty($page['banner'])): ?>
       <?php print render($page['banner']); ?>
@@ -180,7 +177,7 @@
 
             <?php if (!empty($page['sidebar__left'])): ?>
               <div class="row">
-                <aside class="hidden-xs col-sm-4" role="complementary">
+                <aside class="hidden-xs col-sm-4">
                   <?php print render($page['sidebar__left']); ?>
                 </aside>
 
@@ -230,7 +227,7 @@
 
       <?php if (!empty($page['sidebar__left'])): ?>
         <div class="row">
-          <aside class="hidden-xs col-sm-4" role="complementary">
+          <aside class="hidden-xs col-sm-4">
             <?php print render($page['sidebar__left']); ?>
           </aside>
 
