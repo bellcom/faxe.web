@@ -173,7 +173,7 @@ $lg-logo-font-size: 28px;
 
     font-size: 0;
 
-    color: $text-color;
+    color: #fff;
 
     &:after {
       @extend .fa;
@@ -196,7 +196,7 @@ $lg-logo-font-size: 28px;
 
       content: $fa-var-search;
 
-      color :#fff;
+      color: #fff;
     }
   }
 }
