@@ -149,12 +149,16 @@ $lg-logo-font-size: 28px;
 
     width: 100%;
 
-    border: 0;
+    border: 2px solid #fff;
 
     font-weight: $font-weight-bold;
     background-color: #fff;
 
     @include placeholder($text-color);
+
+    &:focus {
+      border-color: $brand-primary;
+    }
   }
 
   .btn {

@@ -131,7 +131,7 @@
   <!-- End - header sticky -->
 
   <!-- Begin - content -->
-  <main class="layout__content" role="main">
+  <main class="layout__content" role="main" id="content">
 
     <?php if (!empty($page['banner'])): ?>
       <?php print render($page['banner']); ?>
@@ -172,8 +172,6 @@
       <?php endif; ?>
 
     </div>
-
-    <a id="main-content"></a>
 
     <?php if (!panels_get_current_page_display()): ?>
       <section class="sectioned">
