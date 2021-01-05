@@ -646,7 +646,9 @@ function _simplesamlphp_auth_rolepopulation($rolemap) {
         watchdog('simplesamlphp_auth', 'Evaluate role rule: %rolerule', array('%rolerule' => $rolerule), WATCHDOG_DEBUG);
       }
       $roleruledecompose = explode(':', $rolerule, 2);
-
+      // Changed to be able to have http://
+      $roleruledecompose[1] = str_replace("¤",":", $roleruledecompose[1]);
+      error_log(print_r($roleruledecompose[1], 1));
       $roleid = $roleruledecompose[0];
       $roleruleevaluations = explode(';', $roleruledecompose[1]);
 
