@@ -2,19 +2,19 @@
 <div class="layout__wrapper">
 
   <!-- Begin - sidr source provider -->
-  <aside class="sidr-source-provider">
+  <div class="sidr-source-provider">
 
     <!-- Begin - navigation -->
-    <nav class="slinky-menu" aria-label="<?=t('Mobil navigation'); ?>">
+    <div class="slinky-menu" aria-label="<?=t('Mobil navigation'); ?>">
       <?php print render($menu_slinky__main_menu); ?>
-    </nav>
+    </div>
     <!-- End - navigation -->
 
-  </aside>
+  </div>
   <!-- End - sidr source provider -->
 
   <!-- Begin - header static -->
-  <header class="flexy-header flexy-header--static">
+  <div class="flexy-header flexy-header--static">
     <div class="flexy-header__row flexy-header__row--first">
       <div class="container">
         <div class="flexy-row">
@@ -29,9 +29,9 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
+          <div class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
             <?php print render($flexy_list__secondary); ?>
-          </nav>
+          </div>
           <!-- End - navigation -->
 
           <!-- Begin - link -->
@@ -75,19 +75,19 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__navigation__wrapper" aria-label="<?=t('Statisk sektions navigation'); ?>">
+          <div class="flexy-header__navigation__wrapper" aria-label="<?=t('Statisk sektions navigation'); ?>">
             <?php print render($flexy_navigation__primary); ?>
-          </nav>
+          </div>
           <!-- End - navigation -->
 
         </div>
       </div>
     </div>
-  </header>
+  </div>
   <!-- End - header static -->
 
   <!-- Begin - header sticky -->
-  <header class="flexy-header flexy-header--sticky">
+  <div class="flexy-header flexy-header--sticky">
     <div class="flexy-header__row">
       <div class="container">
         <div class="flexy-row">
@@ -102,9 +102,9 @@
           <div class="flexy-spacer"></div>
 
           <!-- Begin - navigation -->
-          <nav class="flexy-header__navigation__wrapper hidden-xs hidden-sm" aria-label="<?=t('Fikseret desktop navigation'); ?>">
+          <div class="flexy-header__navigation__wrapper hidden-xs hidden-sm" aria-label="<?=t('Fikseret desktop navigation'); ?>">
             <?php print render($flexy_navigation__primary); ?>
-          </nav>
+          </div>
           <!-- End - navigation -->
 
           <!-- Begin - link -->
@@ -124,11 +124,11 @@
         </div>
       </div>
     </div>
-  </header>
+  </div>
   <!-- End - header sticky -->
 
   <!-- Begin - content -->
-  <main class="layout__content" id="content">
+  <div class="layout__content" id="content">
 
     <?php if (!empty($page['banner'])): ?>
       <?php print render($page['banner']); ?>
@@ -171,17 +171,17 @@
     </div>
 
     <?php if (!panels_get_current_page_display()): ?>
-      <section class="sectioned">
+      <div class="sectioned">
         <div class="sectioned__inner">
           <div class="container">
 
             <?php if (!empty($page['sidebar__left'])): ?>
               <div class="row">
-                <aside class="hidden-xs col-sm-4">
+                <div class="hidden-xs col-sm-4">
                   <?php print render($page['sidebar__left']); ?>
-                </aside>
+                </div>
 
-                <section class="col-sm-8">
+                <div class="col-sm-8">
 
                   <div class="boxy">
 
@@ -198,7 +198,7 @@
                     </div>
                   </div>
 
-                </section>
+                </div>
               </div>
 
             <?php else: ?>
@@ -222,18 +222,18 @@
 
           </div>
         </div>
-      </section>
+      </div>
     <?php else: ?>
 
       <?php if (!empty($page['sidebar__left'])): ?>
         <div class="row">
-          <aside class="hidden-xs col-sm-4">
+          <div class="hidden-xs col-sm-4">
             <?php print render($page['sidebar__left']); ?>
-          </aside>
+          </div>
 
-          <section class="col-sm-8">
+          <div class="col-sm-8">
             <?php print render($page['content']); ?>
-          </section>
+          </div>
         </div>
       <?php else: ?>
         <?php print render($page['content']); ?>
@@ -241,11 +241,11 @@
 
     <?php endif; ?>
 
-  </main>
+  </div>
   <!-- End - content -->
 
   <!-- Begin - footer -->
-  <footer class="layout__footer">
+  <div class="layout__footer">
     <div class="layout__footer__inner">
       <div class="container">
         <div class="row">
@@ -411,7 +411,7 @@
 
       </div>
     </div>
-  </footer>
+  </div>
   <!-- End - footer -->
 
 </div>

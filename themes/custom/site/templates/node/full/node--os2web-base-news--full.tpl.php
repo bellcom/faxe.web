@@ -1,4 +1,4 @@
-<article id="node-<?php print $node->nid; ?>"
+<div id="node-<?php print $node->nid; ?>"
          class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if (isset($content['field_os2web_base_field_lead_img'])): ?>
@@ -41,4 +41,4 @@
     <!-- End - PDF files -->
   <?php endif; ?>
 
-</article>
+</div>

@@ -1,7 +1,7 @@
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
-    <header>
+    <div>
       <?php print render($title_prefix); ?>
       <?php if (!$page && !empty($title)): ?>
         <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
@@ -13,7 +13,7 @@
       <?php print $submitted; ?>
     </span>
       <?php endif; ?>
-    </header>
+    </div>
   <?php endif; ?>
 
   <?php
@@ -38,4 +38,4 @@
 
   <?php print render($content['comments']); ?>
 
-</article>
+</div>

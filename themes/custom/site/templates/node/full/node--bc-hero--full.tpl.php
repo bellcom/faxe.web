@@ -7,7 +7,7 @@ if (isset($node->field_bc_hero_image['und']['0']['uri']) && $uri = $node->field_
 }
 ?>
 
-<article id="node-<?php print $node->nid; ?>"
+<div id="node-<?php print $node->nid; ?>"
          class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php if (!empty($title)): ?>
@@ -47,4 +47,4 @@ if (isset($node->field_bc_hero_image['und']['0']['uri']) && $uri = $node->field_
     </div>
   </div>
 
-</article>
+</div>
