@@ -6,12 +6,24 @@
 function os2intra_simplesaml_menu() {
   $items = array();
 
+  $items['admin/config/os2intra'] = array(
+    'title' => 'OS2Intra Setup',
+    'description' => 'Manage OSIntra settings',
+    'position' => 'right',
+    'weight' => -15,
+    'access arguments' => array('administer os2intra'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
   $items['admin/config/os2intra/simplesaml'] = array(
-    'title'            => 'OS2Intra SimpleSAML',
-    'description'      => 'Administer SimpleSAML',
+    'title' => 'OS2Intra SimpleSAML',
+    'description' => 'Administer SimpleSAML',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('os2intra_simplesaml_settings_form'),
-    'access arguments' => array('administer os2intra simplesaml')
+    'access arguments' => array('administer os2intra simplesaml'),
   );
 
   return $items;
