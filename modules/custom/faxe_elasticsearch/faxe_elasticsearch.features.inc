@@ -359,7 +359,7 @@ function faxe_elasticsearch_default_search_api_page() {
   $items = array();
   $items['faxe_elasticsearch_page'] = entity_import('search_api_page', '{
     "index_id" : "faxe_public",
-    "path" : "sq",
+    "path" : "sog",
     "name" : "S\\u00f8gning",
     "machine_name" : "faxe_elasticsearch_page",
     "description" : "",
