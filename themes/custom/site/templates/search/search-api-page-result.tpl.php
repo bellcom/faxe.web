@@ -21,7 +21,7 @@ $title = (strlen($title) > 45) ? substr($title, 0, 45) . '...' : $title;
           <div class="entity-list-advanced__search-snippet">
 
             <?php if ($snippet) : ?>
-              <p><?php print strip_tags($snippet, '<br>'); ?></p>
+              <p><?php print strip_tags($snippet, '<br> <strong>'); ?></p>
             <?php endif; ?>
 
             <?php if ($info) : ?>
