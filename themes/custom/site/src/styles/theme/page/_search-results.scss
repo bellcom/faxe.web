@@ -65,6 +65,10 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 
     border-bottom: 0;
   }
+
+  .search-hl {
+    background-color: yellow;
+  }
 }
 
 // --------------------------------------------------
