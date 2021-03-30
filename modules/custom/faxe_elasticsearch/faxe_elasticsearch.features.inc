@@ -300,7 +300,7 @@ function faxe_elasticsearch_default_search_api_index() {
           "status" : 1,
           "weight" : "35",
           "settings" : {
-            "prefix" : "\\u003Cstrong\\u003E",
+            "prefix" : "\\u003Cstrong class=\\u0022search-hl\\u0022\\u003E",
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
