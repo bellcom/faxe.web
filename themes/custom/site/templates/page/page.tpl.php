@@ -35,7 +35,7 @@
           <!-- End - navigation -->
 
           <!-- Begin - link -->
-          <a href="/findes"
+          <a href="/sog"
             class="flexy-header__link visible-xs visible-sm">
             <span class="icon fa fa-search"></span>
           </a>
@@ -108,7 +108,7 @@
           <!-- End - navigation -->
 
           <!-- Begin - link -->
-          <a href="/findes"
+          <a href="/sog"
              class="flexy-header__link visible-xs visible-sm">
             <span class="icon fa fa-search"></span>
           </a>
