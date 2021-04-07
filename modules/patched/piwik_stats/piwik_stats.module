@@ -571,7 +571,7 @@ function piwik_stats_process_queue_item($item) {
     // Sum up all statistical data of each URL to a piwik field.
     $piwik_stats_field = _piwik_stats_summarize_field($urls, $xml);
     // Add the filled piwik stats field to the entity.
-    $item['entity']->$item['field']['field_name'] = $piwik_stats_field;
+    $item['entity']->{$item['field']['field_name']} = $piwik_stats_field;
 
     // Save the updated piwik field (without touching the node or any other fields).
     _piwik_stats_field_update($item['entity_type'], $item['entity'], $item['field']);
