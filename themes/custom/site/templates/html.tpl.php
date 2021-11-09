@@ -25,6 +25,10 @@
           data-culture="DA" type="text/javascript"></script>
   <!-- End - cookies script -->
 
+  <!-- Confirmit Digital Feedback Program -->
+  <script id='cf-program-YXw8tv' src='https://digitalfeedback.euro.confirmit.com/api/digitalfeedback/loader?programKey=YXw8tv' async></script>
+  <!-- End Confirmit Digital Feedback Program -->
+  
 </head>
 <body class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
