@@ -213,9 +213,22 @@ function site_file_link($variables) {
 }
 
 function site_preprocess_search_api_page_result(&$variables) {
+  $entity = $variables['url']['options']['entity'];
+  if ($entity->type == 'os2web_base_contentpage') {
+    $sectionTid = $variables['url']['options']['entity']->field_os2web_base_field_struct['und'][0]['tid'];
+    $parents = taxonomy_get_parents_all($sectionTid);
+    $parents = array_reverse($parents);
 
-  if ($variables['url']['options']['entity']->type == 'os2web_meetings_bullet') {
-   $nid = $variables['url']['options']['entity']->nid;
+    $location = [];
+    foreach ($parents as $parent) {
+      $location[] = $parent->name;
+    }
+
+    $variables['sectionsTree'] = implode(' > ', $location);
+  }
+
+  if ($entity->type == 'os2web_meetings_bullet') {
+   $nid = $entity->nid;
    $query = new EntityFieldQuery();
    $result = $query->entityCondition('entity_type', 'node')
      ->propertyCondition('type', 'os2web_meetings_meeting')
@@ -230,8 +243,8 @@ function site_preprocess_search_api_page_result(&$variables) {
    }
   }
 
-  if ($variables['url']['options']['entity']->type == 'os2web_meetings_bullet_attach') {
-    $nid = $variables['url']['options']['entity']->nid;
+  if ($entity->type == 'os2web_meetings_bullet_attach') {
+    $nid = $entity->nid;
     $query = new EntityFieldQuery();
     $result = $query->entityCondition('entity_type', 'node')
        ->propertyCondition('type', 'os2web_meetings_bullet')

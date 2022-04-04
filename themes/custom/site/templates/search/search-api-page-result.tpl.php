@@ -28,6 +28,10 @@ $title = (strlen($title) > 45) ? substr($title, 0, 45) . '...' : $title;
 <!--              <p>--><?php //print strip_tags($info, '<br>'); ?><!--</p>-->
             <?php endif; ?>
 
+            <?php if (isset($sectionsTree) && $sectionsTree): ?>
+              <p>Fundet under: <?php print $sectionsTree; ?></p>
+            <?php endif; ?>
+
           </div>
         <?php endif; ?>
 
