@@ -15,6 +15,7 @@ features[ctools][] = elasticsearch_connector:elasticsearch_connector_defaults:1
 features[ctools][] = facetapi:facetapi_defaults:1
 features[elasticsearch_connector_cluster][] = faxe
 features[facetapi][] = search_api@faxe_content::field_os2web_base_field_struct
+features[facetapi][] = search_api@faxe_content:block:field_os2web_base_field_struct
 features[features_api][] = api:2
 features[search_api_index][] = faxe_content
 features[search_api_index][] = faxe_meetings
