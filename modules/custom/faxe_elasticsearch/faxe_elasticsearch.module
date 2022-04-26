@@ -6,3 +6,15 @@
  */
 
 include_once 'faxe_elasticsearch.features.inc';
+
+/**
+ * Implements hook_search_api_alter_callback_info().
+ */
+function faxe_elasticsearch_search_api_alter_callback_info() {
+  $callbacks['faxe_elasticsearch_meeting_content_decoded'] = array(
+    'name' => t('Faxe elasticsearch meeting content (decoded)'),
+    'description' => t('BPA Body content is stored as htmlentities encoded, this help decoding it and make available for indexing'),
+    'class' => 'SearchApiMeetingContentDecodedAlterSettings',
+  );
+  return $callbacks;
+}
