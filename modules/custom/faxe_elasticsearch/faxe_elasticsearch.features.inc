@@ -171,10 +171,15 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : { "default" : "1", "bundles" : [] }
         },
         "bellcom_elasticsearch_clear_html_alter_settings" : { "status" : 1, "weight" : "0", "settings" : { "fields_clear" : "body" } },
+        "faxe_elasticsearch_meeting_content_decoded" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_metatag_alter_callback" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_viewed_entity" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "mode" : "full", "global_language_switch" : 0 }
+        },
         "search_api_alter_add_hierarchy" : {
           "status" : 1,
           "weight" : "0",
@@ -233,8 +238,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "weight" : "0",
           "settings" : { "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             }
           }
         },
@@ -244,8 +249,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             },
             "title" : 0,
             "alt" : 1,
@@ -257,8 +262,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "weight" : "15",
           "settings" : { "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             }
           }
         },
@@ -268,8 +273,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             },
             "spaces" : "[^[:alnum:]]",
             "ignorable" : "[\\u0027]"
@@ -281,8 +286,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             },
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
@@ -306,8 +311,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "weight" : "35",
           "settings" : { "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             }
           }
         },
@@ -317,8 +322,8 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_os2web_base_field_text" : true,
-              "field_borger_dk_post_text" : true
+              "field_borger_dk_post_text" : true,
+              "field_os2web_base_field_text" : true
             },
             "exceptions" : "texan=texa"
           }
@@ -382,7 +387,11 @@ function faxe_elasticsearch_default_search_api_index() {
           "weight" : "-10",
           "settings" : { "default" : "1", "bundles" : [] }
         },
-        "bellcom_elasticsearch_clear_html_alter_settings" : { "status" : 1, "weight" : "0", "settings" : { "fields_clear" : "body" } },
+        "bellcom_elasticsearch_clear_html_alter_settings" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields_clear" : "body,field_os2web_meetings_bpa_body" }
+        },
         "faxe_elasticsearch_meeting_content_decoded" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_metatag_alter_callback" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
@@ -483,7 +492,7 @@ function faxe_elasticsearch_default_search_api_index() {
           "status" : 1,
           "weight" : "35",
           "settings" : {
-            "prefix" : "\\u003Cstrong\\u003E",
+            "prefix" : "\\u003Cstrong class=\\u0022search-hl\\u0022\\u003E",
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
@@ -537,6 +546,7 @@ function faxe_elasticsearch_default_search_api_index() {
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "field_spot_link:title" : { "type" : "text", "boost" : "13.0" },
+        "field_vist_navn" : { "type" : "text" },
         "metatag_abstract" : { "type" : "text" },
         "metatag_article:author" : { "type" : "text" },
         "metatag_article:expiration_time" : { "type" : "text" },
@@ -638,7 +648,8 @@ function faxe_elasticsearch_default_search_api_index() {
         "metatag_video:writer" : { "type" : "text" },
         "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_language" : { "type" : "string" },
-        "status" : { "type" : "boolean" }
+        "status" : { "type" : "boolean" },
+        "title" : { "type" : "text" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -647,6 +658,7 @@ function faxe_elasticsearch_default_search_api_index() {
           "settings" : { "default" : "1", "bundles" : [] }
         },
         "bellcom_elasticsearch_clear_html_alter_settings" : { "status" : 1, "weight" : "0", "settings" : { "fields_clear" : "body" } },
+        "faxe_elasticsearch_meeting_content_decoded" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_metatag_alter_callback" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
@@ -746,7 +758,7 @@ function faxe_elasticsearch_default_search_api_index() {
           "status" : 1,
           "weight" : "35",
           "settings" : {
-            "prefix" : "\\u003Cstrong\\u003E",
+            "prefix" : "\\u003Cstrong class=\\u0022search-hl\\u0022\\u003E",
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
@@ -801,7 +813,7 @@ function faxe_elasticsearch_default_search_api_page() {
     "machine_name" : "faxe_elasticsearch_page",
     "description" : "",
     "options" : {
-      "mode" : "terms",
+      "mode" : "direct",
       "fields" : [],
       "max_length" : "128",
       "per_page" : "50",
