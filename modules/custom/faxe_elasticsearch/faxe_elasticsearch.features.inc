@@ -813,7 +813,7 @@ function faxe_elasticsearch_default_search_api_page() {
     "machine_name" : "faxe_elasticsearch_page",
     "description" : "",
     "options" : {
-      "mode" : "direct",
+      "mode" : "terms",
       "fields" : [],
       "max_length" : "128",
       "per_page" : "50",
