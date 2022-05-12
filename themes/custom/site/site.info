@@ -16,6 +16,7 @@ regions[search] = 'Search'
 regions[help] = 'Help'
 regions[content] = 'Content'
 regions[sidebar__left] = 'Sidebar - left'
+regions[sidebar__right] = 'Sidebar - right'
 regions[footer__contact_information] = 'Footer - contact information'
 regions[footer__menu] = 'Footer - menu'
 

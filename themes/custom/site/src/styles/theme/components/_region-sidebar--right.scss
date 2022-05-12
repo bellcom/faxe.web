@@ -1,0 +1,134 @@
+// |--------------------------------------------------------------------------
+// | Footer
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .layout__footer
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+// Responsive
+
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.region-sidebar--right {
+  .block {
+    margin-bottom: 20px;
+    .sidebar-selvbetjening-button {
+      max-width: 100%;
+      background: #6faa59;
+      color: #fff;
+      border: none;
+      padding-left: 40px;
+      padding-right: 65px;
+      font-size: 20px;
+      &::after {
+        top: 0;
+        right: 0;
+        padding: 0 30px;
+        height: 100%;
+        color: #fff;
+        background: #00789e;
+        border-left: 1px solid;
+        margin-top: 0;
+        transition: all 300ms ease-in-out;
+      }
+      &:hover, &:focus {
+        background: #528041;
+        &::after {
+          background: #00516b;
+        }
+      }
+    }
+  }
+  .block-facetapi {
+    background-color: $body-bg-secondary;
+    padding: 0 40px 30px;
+    .facetapi-facetapi-checkbox-links {
+      padding: 0;
+      li {
+        list-style-type: none;
+        input[type="radio"], input[type="checkbox"] {
+          margin: 4px 8px 0 0;
+        }
+        ul {
+          padding-left: 22px;
+        }
+      }
+    }
+  }
+}
+.page-sog {
+  .search-results__list {
+    .search-results__list__item {
+      &::before {
+        content: "";
+        height: 30px;
+        width: calc(100% + 80px);
+        display: block;
+        position: relative;
+        background: #f4f4f4;
+        left: -40px;
+        .entity-list-advanced {
+          border-top: 1px solid red;
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@media #{$breakpoint-mobile-and-up} {}
+
+// Mobile - only
+@media #{$breakpoint-mobile-only} {}
+
+// Tablet - and up
+@media #{$breakpoint-tablet-and-up} {}
+
+// Tablet - only
+@media #{$breakpoint-tablet-only} {
+
+}
+
+// Desktop - and up
+@media #{$breakpoint-desktop-and-up} {}
+
+// Desktop - only
+@media #{$breakpoint-desktop-only} {
+
+}
+
+// Large desktop - and up
+@media #{$breakpoint-large-desktop-and-up} {
+
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}
