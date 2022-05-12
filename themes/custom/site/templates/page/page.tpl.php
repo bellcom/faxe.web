@@ -200,6 +200,31 @@
 
                 </div>
               </div>
+              
+            <?php elseif (!empty($page['sidebar__right'])): ?>
+              <div class="row">
+                <div class="col-sm-8">
+
+                  <div class="boxy">
+
+                    <?php if (!empty($title)): ?>
+                      <div class="boxy__heading">
+                        <h1 class="boxy__heading__title">
+                          <?php print $title; ?>
+                        </h1>
+                      </div>
+                    <?php endif; ?>
+
+                    <div class="boxy__body">
+                      <?php print render($page['content']); ?>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="hidden-xs col-sm-4">
+                  <?php print render($page['sidebar__right']); ?>
+                </div>
+              </div>
 
             <?php else: ?>
 
@@ -233,6 +258,16 @@
 
           <div class="col-sm-8">
             <?php print render($page['content']); ?>
+          </div>
+        </div>
+      <?php elseif (!empty($page['sidebar__right'])): ?>
+        <div class="row">
+          <div class="col-sm-8">
+            <?php print render($page['content']); ?>
+          </div>
+          
+          <div class="hidden-xs col-sm-4">
+            <?php print render($page['sidebar__right']); ?>
           </div>
         </div>
       <?php else: ?>
