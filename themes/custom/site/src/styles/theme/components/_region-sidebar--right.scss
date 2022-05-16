@@ -33,7 +33,7 @@
       border: none;
       padding-left: 40px;
       padding-right: 65px;
-      font-size: 20px;
+      font-size: 16px;
       &::after {
         top: 0;
         right: 0;
@@ -52,6 +52,9 @@
         }
       }
     }
+    .partial__heading {
+      padding: 40px 0 25px;
+    }
   }
   .block-facetapi {
     background-color: $body-bg-secondary;
@@ -65,24 +68,6 @@
         }
         ul {
           padding-left: 22px;
-        }
-      }
-    }
-  }
-}
-.page-sog {
-  .search-results__list {
-    .search-results__list__item {
-      &::before {
-        content: "";
-        height: 30px;
-        width: calc(100% + 80px);
-        display: block;
-        position: relative;
-        background: #f4f4f4;
-        left: -40px;
-        .entity-list-advanced {
-          border-top: 1px solid red;
         }
       }
     }
@@ -112,7 +97,15 @@
 }
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@media #{$breakpoint-desktop-and-up} {
+  .region-sidebar--right {
+    .block {
+      .sidebar-selvbetjening-button {
+        font-size: 20px;
+      }
+    }
+  }
+}
 
 // Desktop - only
 @media #{$breakpoint-desktop-only} {

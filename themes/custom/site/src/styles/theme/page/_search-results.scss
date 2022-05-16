@@ -26,14 +26,125 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 // Styling
 // --------------------------------------------------
 
-.search-results {}
+body[class*="page-sog"] {
+  .boxy__heading {
+    padding: 15px 10px;
+    &::after {
+      content: "";
+      display: none;
+    }
+    .boxy__heading__title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 25px;
+      letter-spacing: 0;
+      font-family: inherit;
+      line-height: 1.1;
+      color: inherit;
+    }
+  }
+  .boxy__body {
+    #search-api-page-search-form {
+      position: relative;
+    }
+    .form-type-textfield {
+      width: 100%;
+      .form-text {
+        width: 100%;
+        padding-right: 100px;
+      }
+    }
+    .form-submit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #33769a;
+      &:hover, &:focus {
+        color: #00516b;
+      }
+      &::after {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        height: 30px;
+        width: 30px;
+        margin-top: -15px;
+        margin-right: -15px;
+        font-size: 18px;
+        content: "";
+        color: #fff;
+      }
+    }
+  }
+}
+.search-results {
+  .search-filter-section {
+    background-color: #e9e9e9;
+    padding: 0 10px;
+    margin: 0 -10px -11px;
+    &::before {
+      content: "";
+      height: 30px;
+      width: calc(100% + 80px);
+      display: block;
+      position: relative;
+      background: #f4f4f4;
+      left: -40px;
+    }
+    &::after {
+      content: "";
+      height: 30px;
+      width: calc(100% + 80px);
+      display: block;
+      position: relative;
+      background: #f4f4f4;
+      left: -40px;
+    }
+    h2 {
+      margin: 40px 0 0;
+    }
+    .row {
+      padding-bottom: 40px;
+      a.btn {
+        background-color: #5e5e5e;
+        color: #fff;
+        text-align: center;
+        padding: 18px 10px;
+        height: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        &::after {
+          content: "";
+          display: none;
+        }
+        &:hover {
+          background-color: #404040;
+        }
+      }
+      a.active {
+        background-color: #33769a;
+        &:hover {
+          background-color: #33769a;
+        }
+      }
+    }
+  }
+  .entity-list-advanced {
+    border-top: none;
+  }
+}
+.search-filter-section + .search-results__list .search-results__list__item:first-of-type::before {
+  display: none;
+}
 
 .search-performance {
   display: none;
 }
 
 .search-api-page-results {
-  margin-top: $grid-gutter-width;
 }
 
 .search-results__form {
@@ -59,7 +170,15 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 .search-results__list {}
 
 .search-results__list__item {
-
+  &::before {
+    content: "";
+    height: 30px;
+    width: calc(100% + 80px);
+    display: block;
+    position: relative;
+    background: #f4f4f4;
+    left: -40px;
+  }
   .entity-list-advanced--search-result {
     margin-bottom: 0;
 
@@ -83,11 +202,36 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 @media #{$breakpoint-mobile-and-up} {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {}
+@media #{$breakpoint-mobile-only} {
+  .search-results {
+    .search-filter-section {
+      a.btn {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
 
 // Tablet - and up
 @media #{$breakpoint-tablet-and-up} {
-
+  body[class*="page-sog"] {
+    .boxy__heading {
+      padding: 15px 20px;
+      .boxy__heading__title {
+        font-size: 32px;
+      }
+    }
+  }
+  .search-results {
+    .search-filter-section {
+      padding: 0 20px;
+      margin: 0 -20px -11px;
+      .row {
+        display: flex;
+      }
+    }
+  }
   .entity-list-advanced--search-result {
     padding: $sm-search-result-item-spacing 0;
   }
@@ -98,7 +242,17 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 
 // Desktop - and up
 @media #{$breakpoint-desktop-and-up} {
-
+  body[class*="page-sog"] {
+    .boxy__heading {
+      padding: 15px 40px;
+    }
+  }
+  .search-results {
+    .search-filter-section {
+      padding: 0 40px;
+      margin: 0 -40px -11px;
+    }
+  }
   .entity-list-advanced--search-result {
     padding: $md-search-result-item-spacing 0;
   }

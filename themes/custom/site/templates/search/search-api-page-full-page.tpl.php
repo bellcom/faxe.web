@@ -35,6 +35,7 @@
   <!-- End - form -->
 
   <!-- Begin - filtering -->
+  <div class="search-filter-section">
   <h2>
     Præciser søgningen efter netop dit behov
   </h2>
@@ -49,15 +50,24 @@
   $searchPage = $qParts[0];
   $searchTerm = $qParts[1];
   ?>
-  <a href="/sog/<?php print $searchTerm?>" class="<?php if ($searchPage == 'sog') print 'active' ?>">
-    Fuld søgning
-  </a>
-  <a href="/sog-dagsorden/<?php print $searchTerm?>" class="<?php if ($searchPage == 'sog-dagsorden') print 'active' ?>">
-    Dagsordener og referater
-  </a>
-  <a href="/sog-selvbetjening/<?php print $searchTerm?>" class="<?php if ($searchPage == 'sog-selvbetjening') print 'active' ?>">
-    Selvbetjening
-  </a>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+    <a href="/sog/<?php print $searchTerm?>" class="btn <?php if ($searchPage == 'sog') print 'active' ?>">
+      Fuld søgning
+    </a>
+    </div>
+    <div class="col-12 col-sm-4">
+    <a href="/sog-dagsorden/<?php print $searchTerm?>" class="btn <?php if ($searchPage == 'sog-dagsorden') print 'active' ?>">
+      Dagsordener og referater
+    </a>
+    </div>
+    <div class="col-12 col-sm-4">
+    <a href="/sog-selvbetjening/<?php print $searchTerm?>" class="btn <?php if ($searchPage == 'sog-selvbetjening') print 'active' ?>">
+      Selvbetjening
+    </a>
+    </div>
+  </div>
+  </div>
   <!-- End - filtering -->
 
   <!-- Begin - list -->
