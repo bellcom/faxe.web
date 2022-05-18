@@ -167,7 +167,15 @@ body[class*="page-sog"] {
   }
 }
 
-.search-results__list {}
+.search-results__list {
+  .search-api-spellcheck-suggestion {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  h2.sr-only + .search-results__list__item:first-of-type {
+    margin-top: -40px;
+  }
+}
 
 .search-results__list__item {
   &::before {
