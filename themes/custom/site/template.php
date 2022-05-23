@@ -215,16 +215,21 @@ function site_file_link($variables) {
 function site_preprocess_search_api_page_result(&$variables) {
   $entity = $variables['url']['options']['entity'];
   if ($entity->type == 'os2web_base_contentpage') {
-    $sectionTid = $variables['url']['options']['entity']->field_os2web_base_field_struct['und'][0]['tid'];
-    $parents = taxonomy_get_parents_all($sectionTid);
-    $parents = array_reverse($parents);
+    $menuTrail = array();
+    $menuLink = reset($entity->menu_node_links);
 
-    $location = [];
-    foreach ($parents as $parent) {
-      $location[] = $parent->name;
+    if ($menuLink->plid) {
+      $ml['plid'] = $menuLink->plid;
+
+      while ($ml['plid']) {
+        $ml = menu_link_load($ml['plid']);
+        $menuTrail[] = $ml['link_title'];
+      }
+      array_pop($menuTrail);
+      $menuTrail = array_reverse($menuTrail);
+
+      $variables['menuTrail'] = implode(' > ', $menuTrail);
     }
-
-    $variables['sectionsTree'] = implode(' > ', $location);
   }
 
   if ($entity->type == 'os2web_meetings_bullet') {
