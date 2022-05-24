@@ -82,9 +82,9 @@ body[class*="page-sog"] {
 .search-results {
   .search-filter-section {
     background-color: #e9e9e9;
-    padding: 0 10px;
-    margin: 0 -10px -11px;
-    &::before {
+    padding: 40px 10px;
+    margin: 0 -10px 0;
+/*     &::before {
       content: "";
       height: 30px;
       width: calc(100% + 80px);
@@ -92,8 +92,8 @@ body[class*="page-sog"] {
       position: relative;
       background: #f4f4f4;
       left: -40px;
-    }
-    &::after {
+    } */
+/*     &::after {
       content: "";
       height: 30px;
       width: calc(100% + 80px);
@@ -101,12 +101,12 @@ body[class*="page-sog"] {
       position: relative;
       background: #f4f4f4;
       left: -40px;
-    }
-    h2 {
+    } */
+/*     h2 {
       margin: 40px 0 0;
-    }
+    } */
     .row {
-      padding-bottom: 40px;
+/*       padding-bottom: 40px; */
       a.btn {
         background-color: #5e5e5e;
         color: #fff;
@@ -136,9 +136,9 @@ body[class*="page-sog"] {
     border-top: none;
   }
 }
-.search-filter-section + .search-results__list .search-results__list__item:first-of-type::before {
+/* .search-filter-section + .search-results__list .search-results__list__item:first-of-type::before {
   display: none;
-}
+} */
 
 .search-performance {
   display: none;
@@ -169,12 +169,13 @@ body[class*="page-sog"] {
 
 .search-results__list {
   .search-api-spellcheck-suggestion {
-    margin-top: 40px;
-    margin-bottom: 30px;
+    display: none;
+/*     margin-top: 40px;
+    margin-bottom: 30px; */
   }
-  h2.sr-only + .search-results__list__item:first-of-type {
+/*   h2.sr-only + .search-results__list__item:first-of-type {
     margin-top: -40px;
-  }
+  } */
 }
 
 .search-results__list__item {
@@ -186,6 +187,11 @@ body[class*="page-sog"] {
     position: relative;
     background: #f4f4f4;
     left: -40px;
+  }
+  .entity-list-advanced__search-snippet {
+    p:nth-of-type(2) {
+      color: #33769a;
+    }
   }
   .entity-list-advanced--search-result {
     margin-bottom: 0;
@@ -233,8 +239,8 @@ body[class*="page-sog"] {
   }
   .search-results {
     .search-filter-section {
-      padding: 0 20px;
-      margin: 0 -20px -11px;
+      padding: 40px 20px;
+      margin: 0 -20px 0;
       .row {
         display: flex;
       }
@@ -257,8 +263,8 @@ body[class*="page-sog"] {
   }
   .search-results {
     .search-filter-section {
-      padding: 0 40px;
-      margin: 0 -40px -11px;
+      padding: 40px;
+      margin: 0 -40px 0;
     }
   }
   .entity-list-advanced--search-result {

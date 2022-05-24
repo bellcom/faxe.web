@@ -36,12 +36,8 @@
 
   <!-- Begin - filtering -->
   <div class="search-filter-section">
-  <h2>
-    Præciser søgningen efter netop dit behov
-  </h2>
   <p>
-    Klik og tilpas søgnigen præcis efter dit formål med søgningen. Ønsker du at gå tilbage til den
-    fulde søgning, så kan du blot trykke på dem igen, og indholdet går tilbage til det originale.
+    Klik og tilpas søgningen præcis efter dit behov. Tryk på "Fuld søgning" for at komme tilbage.
   </p>
 
   <?php
