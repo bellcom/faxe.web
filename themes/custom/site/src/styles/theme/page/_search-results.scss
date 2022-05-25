@@ -28,7 +28,7 @@ $lg-search-result-item-spacing: floor( ( $grid-gutter-width / 2 ) );
 
 body[class*="page-sog"] {
   .boxy__heading {
-    padding: 15px 10px;
+    padding: 30px 10px 15px;
     &::after {
       content: "";
       display: none;
@@ -82,7 +82,7 @@ body[class*="page-sog"] {
 .search-results {
   .search-filter-section {
     background-color: #e9e9e9;
-    padding: 40px 10px;
+    padding: 30px 10px;
     margin: 0 -10px 0;
     .row {
       a.btn {
@@ -161,6 +161,7 @@ body[class*="page-sog"] {
   .entity-list-advanced__search-snippet {
     p:nth-of-type(2) {
       color: #33769a;
+      margin: 0;
     }
   }
   .entity-list-advanced--search-result {
@@ -193,6 +194,11 @@ body[class*="page-sog"] {
         max-width: 100%;
         margin-bottom: 10px;
       }
+      .col-12:last-of-type {
+        a.btn {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -201,7 +207,7 @@ body[class*="page-sog"] {
 @media #{$breakpoint-tablet-and-up} {
   body[class*="page-sog"] {
     .boxy__heading {
-      padding: 15px 20px;
+      padding: 30px 20px 15px;
       .boxy__heading__title {
         font-size: 32px;
       }
@@ -209,7 +215,7 @@ body[class*="page-sog"] {
   }
   .search-results {
     .search-filter-section {
-      padding: 40px 20px;
+      padding: 30px 20px;
       margin: 0 -20px 0;
       .row {
         display: flex;
@@ -228,12 +234,12 @@ body[class*="page-sog"] {
 @media #{$breakpoint-desktop-and-up} {
   body[class*="page-sog"] {
     .boxy__heading {
-      padding: 15px 40px;
+      padding: 30px 40px 15px;
     }
   }
   .search-results {
     .search-filter-section {
-      padding: 40px;
+      padding: 30px 40px;
       margin: 0 -40px 0;
     }
   }
