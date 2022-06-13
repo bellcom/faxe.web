@@ -47,6 +47,12 @@ function faxe_sitemap_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Overskrift: Global: Tekstområde */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div style="padding-top: 1px;margin-top: 15px;"></div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -98,6 +104,7 @@ function faxe_sitemap_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
+    t('<div style="padding-top: 1px;margin-top: 15px;"></div>'),
     t('Page'),
   );
   $export['sitemap'] = $view;
