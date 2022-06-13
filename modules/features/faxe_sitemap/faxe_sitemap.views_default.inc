@@ -23,7 +23,7 @@ function faxe_sitemap_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Sitemap';
+  $handler->display->display_options['title'] = 'Selvbetjening';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -88,10 +88,10 @@ function faxe_sitemap_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'sitemap';
+  $handler->display->display_options['path'] = 'sog-selvbetjening';
   $translatables['sitemap'] = array(
     t('Master'),
-    t('Sitemap'),
+    t('Selvbetjening'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
