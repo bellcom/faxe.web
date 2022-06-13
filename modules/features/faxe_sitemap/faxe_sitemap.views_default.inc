@@ -88,7 +88,7 @@ function faxe_sitemap_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'sog-selvbetjening';
+  $handler->display->display_options['path'] = 'sog-sitemap';
   $translatables['sitemap'] = array(
     t('Master'),
     t('Selvbetjening'),
