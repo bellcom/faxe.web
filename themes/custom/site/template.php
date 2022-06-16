@@ -214,7 +214,7 @@ function site_file_link($variables) {
 
 function site_preprocess_search_api_page_result(&$variables) {
   $entity = $variables['url']['options']['entity'];
-  if ($entity->type == 'os2web_base_contentpage') {
+  if ($entity->type == 'os2web_base_contentpage' || $entity->type == 'borger_dk_article' || $entity->type == 'os2web_base_news') {
     $menuTrail = array();
     $menuLink = reset($entity->menu_node_links);
 
