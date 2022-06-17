@@ -16,5 +16,10 @@ function faxe_elasticsearch_search_api_alter_callback_info() {
     'description' => t('BPA Body content is stored as htmlentities encoded, this help decoding it and make available for indexing'),
     'class' => 'SearchApiMeetingContentDecodedAlterSettings',
   );
+  $callbacks['faxe_elasticsearch_sitemap_category'] = array(
+    'name' => t('Faxe elasticsearch sitemap category filter'),
+    'description' => t('Only allows content to be index if it has sitemap category field filled'),
+    'class' => 'SearchApiSitemapCategoryFilter',
+  );
   return $callbacks;
 }

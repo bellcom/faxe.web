@@ -27,7 +27,7 @@ class SearchApiMeetingContentDecodedAlterSettings extends SearchApiAbstractAlter
       $metaInformation = '';
 
       // Checking if node is actually a meeting.
-      if ($node->type = 'os2web_meetings_meeting') {
+      if ($node->type == 'os2web_meetings_meeting') {
         // Getting all BP.
 
         // Extracting data from bullet points.

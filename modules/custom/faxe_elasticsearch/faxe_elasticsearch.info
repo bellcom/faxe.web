@@ -25,4 +25,5 @@ features[search_api_page][] = faxe_meetings_search
 features[search_api_page][] = faxe_selfservice
 features[search_api_server][] = faxe
 files[] = includes/callback_faxe_elasticsearch_meeting_content_decoded.inc
+files[] = includes/callback_faxe_elasticsearch_sitemap_category_filter.inc
 project path = sites/all/modules/custom

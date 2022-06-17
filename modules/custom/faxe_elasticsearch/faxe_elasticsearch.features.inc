@@ -43,6 +43,16 @@ function faxe_elasticsearch_default_search_api_index() {
         "field_afsnit_paragraphs" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "paragraphs_item" },
         "field_afsnit_paragraphs:field_afsnit_indhold:value" : { "type" : "list\\u003Ctext\\u003E", "boost" : "2.0" },
         "field_afsnit_paragraphs:field_afsnit_overskrift" : { "type" : "list\\u003Ctext\\u003E", "boost" : "5.0" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:articleUrl" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:byline" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:legislation" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:recommendation" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:title" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_microarticle_entity_ids:content" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_microarticle_entity_ids:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:label" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:url" : { "type" : "list\\u003Ctext\\u003E" },
         "field_borger_dk_header:value" : { "type" : "text", "boost" : "8.0" },
         "field_borger_dk_post_text" : { "type" : "text", "boost" : "3.0" },
         "field_borger_dk_pre_text:value" : { "type" : "text", "boost" : "8.0" },
@@ -172,6 +182,7 @@ function faxe_elasticsearch_default_search_api_index() {
         },
         "bellcom_elasticsearch_clear_html_alter_settings" : { "status" : 1, "weight" : "0", "settings" : { "fields_clear" : "body" } },
         "faxe_elasticsearch_meeting_content_decoded" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "faxe_elasticsearch_sitemap_category" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_metatag_alter_callback" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
@@ -367,7 +378,6 @@ function faxe_elasticsearch_default_search_api_index() {
         "attachments_field_os2web_meetings_enclosures" : { "type" : "text" },
         "attachments_field_os2web_meetings_full_doc" : { "type" : "text" },
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "faxe_elasticsearch_meeting_content_decoded" : { "type" : "text" },
         "field_os2web_meetings_bullets:field_os2web_meetings_attach" : {
           "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
           "entity_type" : "node"
@@ -536,7 +546,12 @@ function faxe_elasticsearch_default_search_api_index() {
     "server" : "faxe",
     "item_type" : "node",
     "options" : {
-      "datasource" : { "bundles" : [ "os2web_base_selfservice_link" ] },
+      "datasource" : { "bundles" : [
+          "borger_dk_article",
+          "os2web_base_contentpage",
+          "os2web_base_selfservice_link"
+        ]
+      },
       "index_directly" : 1,
       "cron_limit" : "50",
       "index_name" : { "index" : "faxe_selfservice", "cluster_id" : "faxe" },
@@ -545,6 +560,20 @@ function faxe_elasticsearch_default_search_api_index() {
       "index_statistics_ttl" : "365d",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
+        "field_afsnit_paragraphs" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "paragraphs_item" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:byline" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:header" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:legislation" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:recommendation" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_article_entity_id:title" : { "type" : "text" },
+        "field_borger_dk_article_ref:borgerdk_microarticle_entity_ids:content" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_microarticle_entity_ids:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:label" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_article_ref:borgerdk_selfservice_entity_ids:url" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_borger_dk_post_text" : { "type" : "text", "boost" : "3.0" },
+        "field_os2web_base_field_text" : { "type" : "text", "boost" : "3.0" },
+        "field_os2web_meetings_bpa_body:value" : { "type" : "text" },
         "field_spot_link:title" : { "type" : "text", "boost" : "13.0" },
         "field_vist_navn" : { "type" : "text" },
         "metatag_abstract" : { "type" : "text" },
@@ -649,30 +678,35 @@ function faxe_elasticsearch_default_search_api_index() {
         "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_language" : { "type" : "string" },
         "status" : { "type" : "boolean" },
-        "title" : { "type" : "text" }
+        "title" : { "type" : "text", "boost" : "21.0" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
           "status" : 0,
-          "weight" : "-10",
+          "weight" : "-50",
           "settings" : { "default" : "1", "bundles" : [] }
         },
-        "bellcom_elasticsearch_clear_html_alter_settings" : { "status" : 1, "weight" : "0", "settings" : { "fields_clear" : "body" } },
-        "faxe_elasticsearch_meeting_content_decoded" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_metatag_alter_callback" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "faxe_elasticsearch_sitemap_category" : { "status" : 1, "weight" : "-49", "settings" : [] },
+        "bellcom_elasticsearch_clear_html_alter_settings" : {
+          "status" : 1,
+          "weight" : "-48",
+          "settings" : { "fields_clear" : "body" }
+        },
+        "faxe_elasticsearch_meeting_content_decoded" : { "status" : 0, "weight" : "-47", "settings" : [] },
+        "search_api_metatag_alter_callback" : { "status" : 1, "weight" : "-46", "settings" : [] },
+        "search_api_alter_add_url" : { "status" : 0, "weight" : "-45", "settings" : [] },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "-44", "settings" : [] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "-43", "settings" : { "fields" : [] } },
+        "search_api_alter_node_access" : { "status" : 1, "weight" : "-42", "settings" : [] },
         "search_api_alter_add_viewed_entity" : {
           "status" : 0,
-          "weight" : "0",
+          "weight" : "-41",
           "settings" : { "mode" : "full", "global_language_switch" : 1 }
         },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 0, "weight" : "-40", "settings" : [] },
         "search_api_attachments_alter_settings" : {
           "status" : 0,
-          "weight" : "0",
+          "weight" : "-39",
           "settings" : {
             "excluded_extensions" : "aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv",
             "number_indexed" : "0",
@@ -683,7 +717,7 @@ function faxe_elasticsearch_default_search_api_index() {
         },
         "search_api_attachments_entityreference_alter_settings" : {
           "status" : 0,
-          "weight" : "0",
+          "weight" : "-38",
           "settings" : {
             "excluded_extensions" : "aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv",
             "number_indexed" : "0",
@@ -694,7 +728,7 @@ function faxe_elasticsearch_default_search_api_index() {
         },
         "search_api_attachments_paragraphs_alter_settings" : {
           "status" : 0,
-          "weight" : "0",
+          "weight" : "-37",
           "settings" : {
             "excluded_extensions" : "aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv",
             "number_indexed" : "0",
@@ -705,7 +739,7 @@ function faxe_elasticsearch_default_search_api_index() {
         },
         "search_api_attachments_references_alter_settings" : {
           "status" : 0,
-          "weight" : "0",
+          "weight" : "-36",
           "settings" : {
             "excluded_extensions" : "aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv",
             "number_indexed" : "0",
