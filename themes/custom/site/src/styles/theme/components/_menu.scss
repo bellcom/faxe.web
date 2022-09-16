@@ -19,7 +19,22 @@
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
+.flexy-header__secondary-navigation {
+  * {
+    font-size: 16px!important;
+  }
+  display: flex;
+  gap: 3rem;
+  align-items: center;
 
+}
+.js-increase-font-size, 
+.js-decrease-font-size {
+  background-color: transparent;
+  border: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
 .layout__content {
 
   .menu {

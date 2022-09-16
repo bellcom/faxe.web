@@ -31,8 +31,13 @@
           <!-- Begin - navigation -->
           <div class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
             <?php print render($flexy_list__secondary); ?>
+            <button class="js-decrease-font-size">A-</button>
+            <button class="js-increase-font-size">A+</button>
           </div>
           <!-- End - navigation -->
+
+          <button class="visible-sm js-decrease-font-size">A-</button>
+          <button class="visible-sm js-increase-font-size">A+</button>
 
           <!-- Begin - link -->
           <a href="/sog"
@@ -128,6 +133,9 @@
   <!-- End - header sticky -->
 
   <!-- Begin - content -->
+  <main id='font-resize-wrapper'>
+
+
   <div class="layout__content" id="content">
 
     <?php if (!empty($page['banner'])): ?>
@@ -277,6 +285,7 @@
     <?php endif; ?>
 
   </div>
+  </main>
   <!-- End - content -->
 
   <!-- Begin - footer -->
