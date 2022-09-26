@@ -67,7 +67,14 @@ $lg-logo-font-size: 28px;
     .container {
       height: initial;
     }
-  }
+    .form-type-textfield.form-group {
+        input {
+          &.form-text {
+            font-size: 1.13em;
+          }
+        }
+      } 
+    }
 
   .flexy-header__row--third {
     @include flexy-header-mixin-row-height($xs-flexy-header-static-row-third-height);
@@ -90,9 +97,8 @@ $lg-logo-font-size: 28px;
   }
 
   a {
-    font-size: $font-size-base;
-    font-weight: $font-weight-bold;
 
+    font-weight: $font-weight-bold;
     color: $text-color;
   }
 }
@@ -196,7 +202,7 @@ $lg-logo-font-size: 28px;
       margin-top: -15px;
       margin-right: -15px;
 
-      font-size: $font-size-large;
+      font-size: $font-size-large-rem;
 
       content: $fa-var-search;
 

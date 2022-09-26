@@ -1,5 +1,5 @@
 <!-- Begin - wrapper -->
-<div class="layout__wrapper">
+<div class="layout__wrapper" id='font-resize-wrapper'>
 
   <!-- Begin - sidr source provider -->
   <div class="sidr-source-provider">
@@ -133,7 +133,7 @@
   <!-- End - header sticky -->
 
   <!-- Begin - content -->
-  <main id='font-resize-wrapper'>
+  <main>
 
 
   <div class="layout__content" id="content">

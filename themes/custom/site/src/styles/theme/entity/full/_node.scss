@@ -56,8 +56,11 @@
 .node__intro {
   margin-bottom: floor( ($grid-gutter-width / 3) );
 
-  font-size: $font-size-large;
+  font-size: $font-size-large-rem;
   font-weight: $font-weight-bold;
+  .field-item {
+    font-size: 1em;
+  }
 }
 
 // --------------------------------------------------
