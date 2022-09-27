@@ -60,7 +60,7 @@ h3.node__preheading__title, h3, .field-item.even h3 {
     font-size: 1.5em;
 }
 
-h1.node__heading__title {
+h1.node__heading__title, h1, .heading-h1 {
     font-size: 2em;
 }
 .heading-h6 {
@@ -75,7 +75,7 @@ h1.node__heading__title {
 h4, .h4 {
     font-size: 1.25em;
 }
-h5, .heading-h5 {
+h5, [class="heading-h5"], [class="h5"] {
     font-size: 1.125em;
 }
 // --------------------------------------------------
