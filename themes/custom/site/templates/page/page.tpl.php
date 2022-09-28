@@ -31,14 +31,16 @@
           <!-- Begin - navigation -->
           <div class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
             <?php print render($flexy_list__secondary); ?>
-            <button class="js-decrease-font-size">A-</button>
-            <button class="js-increase-font-size">A+</button>
+            <div>
+              <button class="js-decrease-font-size">A-</button>
+              <button class="js-increase-font-size">A+</button>
+            </div>
           </div>
           <!-- End - navigation -->
-
-          <button class="visible-sm js-decrease-font-size">A-</button>
-          <button class="visible-sm js-increase-font-size">A+</button>
-
+          <div class="flexy-row">
+            <button class="visible-sm js-decrease-font-size">A-</button>
+            <button class="visible-sm js-increase-font-size">A+</button>
+          </div>
           <!-- Begin - link -->
           <a href="/sog"
             class="flexy-header__link visible-xs visible-sm">
