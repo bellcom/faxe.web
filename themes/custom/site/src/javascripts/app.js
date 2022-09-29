@@ -55,12 +55,18 @@ jQuery(function($) {
           if (flag == "increase") {
             switch (html.css("font-size")) {
               case "10px":
-                currentFontSize = 20;
+                currentFontSize = 15;
+                break;
+              case "15px":
+                currentFontSize = 23;
                 break;
             }
           } else if (flag == "decrease") {
             switch (html.css("font-size")) {
-              case "20px":
+              case "23px":
+                currentFontSize = 15;
+                break;
+              case "15px":
                 currentFontSize = 10;
                 break;
             }
