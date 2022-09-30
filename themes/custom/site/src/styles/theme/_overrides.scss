@@ -81,6 +81,11 @@ h5, [class="heading-h5"], [class="h5"] {
 body {
     font-size: 1.6rem;
 }
+.header-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------

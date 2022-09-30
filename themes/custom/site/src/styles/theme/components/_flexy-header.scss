@@ -105,7 +105,13 @@ $lg-logo-font-size: 28px;
 
 .flexy-header__logo {
   font-size: $xs-logo-font-size;
-
+  width: 277px;
+  margin-right: 10px;
+  img {
+    width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
   &, &:hover, &:focus {
     color: $text-color;
 
@@ -304,7 +310,9 @@ $lg-logo-font-size: 28px;
   .flexy-header--static {
 
     .flexy-header__row--first {
-      @include flexy-header-mixin-row-height($md-flexy-header-static-row-first-height);
+      // @include flexy-header-mixin-row-height($md-flexy-header-static-row-first-height);
+      height: unset;
+      min-height: $md-flexy-header-static-row-first-height;
     }
 
     .flexy-header__row--second {
@@ -335,7 +343,9 @@ $lg-logo-font-size: 28px;
   .flexy-header--static {
 
     .flexy-header__row--first {
-      @include flexy-header-mixin-row-height($lg-flexy-header-static-row-first-height);
+      // @include flexy-header-mixin-row-height($lg-flexy-header-static-row-first-height);
+      height: unset;
+      min-height: $lg-flexy-header-static-row-first-height;
     }
 
     .flexy-header__row--second {

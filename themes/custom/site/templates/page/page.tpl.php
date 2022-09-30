@@ -15,9 +15,9 @@
 
   <!-- Begin - header static -->
   <div class="flexy-header flexy-header--static">
-    <div class="flexy-header__row flexy-header__row--first">
+    <div class="flexy-header__row header-row flexy-header__row--first">
       <div class="container">
-        <div class="flexy-row">
+        <div class="header-row">
 
           <!-- Begin - logo -->
           <a href="<?php print $front_page; ?>" class="flexy-header__logo">
@@ -31,7 +31,7 @@
           <!-- Begin - navigation -->
           <div class="flexy-header__secondary-navigation hidden-xs hidden-sm" aria-label="<?=t('Statisk desktop navigation'); ?>">
             <?php print render($flexy_list__secondary); ?>
-            <div>
+            <div class="header-row">
               <button class="js-decrease-font-size">A-</button>
               <button class="js-increase-font-size">A+</button>
             </div>
