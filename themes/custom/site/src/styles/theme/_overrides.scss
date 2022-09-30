@@ -86,6 +86,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+.header-row.flexy-header__row--first {
+    @media #{$breakpoint-mobile-only} {
+        display: block;
+    }
+}
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
