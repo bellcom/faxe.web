@@ -28,7 +28,25 @@
   <!-- Confirmit Digital Feedback Program -->
   <script id='cf-program-YXw8tv' src='https://digitalfeedback.euro.confirmit.com/api/digitalfeedback/loader?programKey=YXw8tv' async></script>
   <!-- End Confirmit Digital Feedback Program -->
-  
+ <script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "SIVyjaDAw39OpmqGPSw3yg",
+        statistics: {
+            enabled: true,
+            cookieLessTracking: true,
+            documentTracking: {
+                enabled: false,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: [],
+            },
+        },
+        pageCorrect: {
+            enabled: true,
+        },
+    };
+</script>
+<script type="text/javascript" async src="https://app-script.monsido.com/v2/monsido-script.js"></script> 
 </head>
 <body class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
