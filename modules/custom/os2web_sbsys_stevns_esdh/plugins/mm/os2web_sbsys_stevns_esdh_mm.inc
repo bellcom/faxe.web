@@ -209,11 +209,13 @@ function os2web_sbsys_stevns_esdh_mm_import_meeting($meeting) {
           if (sizeof($agenda_instance->xpath("Dagsordenpunkt")))
             $meeting_agendas = $agenda_instance->xpath("Dagsordenpunkt");
           else {
-            //importing open agenda
-            $meeting_agendas = $agenda_instance->xpath("Gruppe[@navn='Åbne dagsordenspunkter']/Dagsordenpunkt");
+            // Importing open agenda = if does not have "lukke".
+            $meeting_agendas = $agenda_instance->xpath("Gruppe[not(contains(@navn, 'Lukk'))]/Dagsordenpunkt");
+
             //importing closed agenda
-            if (variable_get('os2web_meetings_import_closed_agenda', false))
+            if (variable_get('os2web_meetings_import_closed_agenda', false)) {
               $meeting_agendas = array_merge($meeting_agendas, $agenda_instance->xpath("Gruppe[@navn='Lukkede dagsordenspunkter']/Dagsordenpunkt"));
+            }
           }
         }
         else {
